@@ -23,112 +23,11 @@
             min-height: 100vh;
         }
         
-        /* Мобильная навигация */
-        .mobile-nav {
-            background: #fff;
-            border-bottom: 1px solid #e6e6e6;
-            padding: 12px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-logo {
-            height: 28px;
-        }
-        
-        .mobile-menu-btn {
-            width: 24px;
-            height: 24px;
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #666;
-        }
-        
-        /* Боковое меню */
-        .side-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 280px;
-            height: 100%;
-            background: white;
-            z-index: 1000;
-            overflow-y: auto;
-            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
-        }
-        
-        .side-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px;
-            border-bottom: 1px solid #e6e6e6;
-        }
-        
-        .side-menu-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-        }
-        
-        .side-nav-links {
-            display: flex;
-            flex-direction: column;
-            padding: 8px 0;
-        }
-        
-        .side-nav-link {
-            padding: 12px 20px;
-            color: #333;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .side-nav-link:hover {
-            background: #f7f7f7;
-        }
-        
-        .side-menu-section {
-            padding: 16px 20px 8px;
-            font-size: 12px;
-            color: #666;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        .premium-section {
-            background: #ffd700;
-            margin: 16px;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .premium-btn {
-            background: #000;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 500;
-            width: 100%;
-        }
-        
         .container {
             flex: 1;
             max-width: 440px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 20px;
             width: 100%;
         }
         
@@ -190,10 +89,6 @@
             text-decoration: none;
         }
         
-        .terms a:hover {
-            text-decoration: underline;
-        }
-        
         .redeem-btn {
             width: 100%;
             background: #00a2ff;
@@ -207,13 +102,32 @@
             font-weight: 600;
         }
         
-        .redeem-btn:hover {
-            background: #008ccf;
-        }
-        
         .redeem-btn:disabled {
             background: #cccccc;
             cursor: not-allowed;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .info-list {
+            list-style: none;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .info-list li {
+            margin-bottom: 8px;
+            padding-left: 0;
+        }
+        
+        .info-list a {
+            color: #00a2ff;
+            text-decoration: none;
         }
         
         .alert-overlay {
@@ -266,241 +180,9 @@
             background: #00a2ff;
             color: white;
         }
-        
-        .photo-section {
-            background: #fff;
-            border-radius: 12px;
-            padding: 0;
-            margin-bottom: 24px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .gift-card-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .info-panel {
-            background: #f0f0f0;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-        }
-        
-        .info-title {
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #333;
-            font-size: 16px;
-        }
-        
-        .info-list {
-            list-style: none;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .info-list li {
-            margin-bottom: 8px;
-            padding-left: 0;
-        }
-        
-        .info-list a {
-            color: #00a2ff;
-            text-decoration: none;
-        }
-        
-        .info-list a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 16px 0;
-            color: #999;
-            font-size: 12px;
-        }
-        
-        .language-selector {
-            margin-bottom: 16px;
-        }
-        
-        .language-selector select {
-            padding: 6px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background: white;
-            font-size: 13px;
-            width: 100%;
-            max-width: 200px;
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 16px;
-            gap: 8px;
-        }
-        
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            font-size: 12px;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .copyright {
-            color: #999;
-            font-size: 12px;
-            line-height: 1.4;
-            margin-top: 16px;
-        }
-
-        /* Для десктопа */
-        @media (min-width: 769px) {
-            .mobile-nav {
-                display: none;
-            }
-            
-            .top-nav {
-                display: block;
-                background: #fff;
-                border-bottom: 1px solid #e6e6e6;
-                padding: 0;
-            }
-            
-            .nav-container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                height: 60px;
-            }
-            
-            .nav-logo {
-                height: 36px;
-            }
-            
-            .nav-links {
-                display: flex;
-                gap: 0;
-                align-items: center;
-            }
-            
-            .nav-link {
-                color: #666;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 500;
-                padding: 20px 16px;
-                transition: all 0.2s;
-                border-bottom: 3px solid transparent;
-            }
-            
-            .nav-link:hover {
-                color: #00a2ff;
-                border-bottom: 3px solid #00a2ff;
-            }
-            
-            .nav-actions {
-                display: flex;
-                gap: 12px;
-                align-items: center;
-            }
-            
-            .search-box {
-                padding: 8px 12px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                width: 200px;
-                font-size: 13px;
-            }
-            
-            .login-btn {
-                background: #00a2ff;
-                color: white;
-                border: none;
-                padding: 8px 16px;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 13px;
-                font-weight: 500;
-                text-decoration: none;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Мобильная навигация -->
-    <nav class="mobile-nav">
-        <button class="mobile-menu-btn">☰</button>
-        <a href="https://www.roblox.com">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
-        </a>
-        <div style="width: 24px;"></div> <!-- Для баланса -->
-    </nav>
-
-    <!-- Боковое меню -->
-    <div class="side-menu" id="side-menu">
-        <div class="side-menu-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo" style="height: 28px;">
-            <button class="side-menu-close">×</button>
-        </div>
-        
-        <div class="side-nav-links">
-            <a href="#" class="side-nav-link">Дом</a>
-            <a href="#" class="side-nav-link">Профиль</a>
-            <a href="#" class="side-nav-link">Сообщения</a>
-            <a href="#" class="side-nav-link">Соединять</a>
-            <a href="#" class="side-nav-link">Аватар</a>
-            <a href="#" class="side-nav-link">Инвентарь</a>
-            <a href="#" class="side-nav-link">Торговля</a>
-            <a href="#" class="side-nav-link">Сообщества</a>
-            <a href="#" class="side-nav-link">Блог</a>
-            <a href="#" class="side-nav-link">Официальный магазин</a>
-        </div>
-        
-        <div class="side-menu-section">Категории</div>
-        <div class="side-nav-links">
-            <a href="https://www.roblox.com/discover#!/popular" class="side-nav-link">Диаграммы</a>
-            <a href="https://www.roblox.com/gamecards" class="side-nav-link">Подарочные карты</a>
-        </div>
-        
-        <div class="premium-section">
-            <div style="font-weight: 600; margin-bottom: 8px;">Получить Премиум</div>
-            <button class="premium-btn">Купить</button>
-        </div>
-    </div>
-
-    <!-- Десктопная навигация -->
-    <nav class="top-nav">
-        <div class="nav-container">
-            <a href="https://www.roblox.com">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
-            </a>
-            <div class="nav-links">
-                <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
-                <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
-                <a href="https://create.roblox.com" class="nav-link">Создавать</a>
-                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
-            </div>
-            <div class="nav-actions">
-                <input type="text" class="search-box" placeholder="Поиск">
-                <a href="https://www.roblox.com/login" class="login-btn">Войти</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Основной контент -->
     <div class="container">
         <h1>Активировать коды Roblox</h1>
         <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
@@ -520,54 +202,15 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <div class="photo-section">
-            <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
-        </div>
-        
-        <div class="info-panel">
-            <div class="info-title">Дополнительная информация</div>
-            <ul class="info-list">
-                <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer">
-            <div class="language-selector">
-                <select>
-                    <option>Русский</option>
-                    <option>English</option>
-                    <option>Español</option>
-                    <option>Português</option>
-                    <option>Français</option>
-                    <option>Deutsch</option>
-                    <option>한국어</option>
-                    <option>日本語</option>
-                    <option>中文</option>
-                </select>
-            </div>
-            
-            <div class="footer-links">
-                <a href="https://www.roblox.com/info/about">О нас</a>
-                <a href="https://corp.roblox.com/careers/">Работа</a>
-                <a href="https://blog.roblox.com/">Блог</a>
-                <a href="https://corp.roblox.com/parents/">Родители</a>
-                <a href="https://www.roblox.com/gamecards">Подарочные карты</a>
-                <a href="https://en.help.roblox.com/hc/en-us">Помощь</a>
-                <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use">Условия</a>
-                <a href="https://corp.roblox.com/accessibility/">Доступность</a>
-                <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy">Конфиденциальность</a>
-                <a href="https://www.roblox.com/info/privacy">Ваш выбор конфиденциальности</a>
-                <a href="https://www.roblox.com/sitemap">Карта сайта</a>
-            </div>
-            
-            <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
-        </div>
+        <div class="info-title">Дополнительная информация</div>
+        <ul class="info-list">
+            <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
+            <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
+            <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
+            <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
+        </ul>
     </div>
 
-    <!-- Всплывающее оповещение -->
     <div class="alert-overlay" id="alert-overlay">
         <div class="alert-box">
             <div class="alert-title">Код успешно активирован</div>
@@ -583,20 +226,8 @@
         const codeInput = document.getElementById('code-input');
         const alertOverlay = document.getElementById('alert-overlay');
         const alertBackBtn = document.getElementById('alert-back-btn');
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const sideMenuClose = document.querySelector('.side-menu-close');
-        const sideMenu = document.getElementById('side-menu');
         
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
-        
-        // Боковое меню
-        mobileMenuBtn.addEventListener('click', function() {
-            sideMenu.style.display = 'block';
-        });
-        
-        sideMenuClose.addEventListener('click', function() {
-            sideMenu.style.display = 'none';
-        });
         
         termsCheckbox.addEventListener('change', function() {
             redeemBtn.disabled = !this.checked;

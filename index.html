@@ -47,29 +47,29 @@
             color: #666;
         }
         
-        .mobile-menu {
+        /* Боковое меню */
+        .side-menu {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 280px;
             height: 100%;
             background: white;
             z-index: 1000;
-            padding: 20px;
             overflow-y: auto;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
         }
         
-        .mobile-menu-header {
+        .side-menu-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            padding: 16px;
             border-bottom: 1px solid #e6e6e6;
         }
         
-        .mobile-menu-close {
+        .side-menu-close {
             background: none;
             border: none;
             font-size: 24px;
@@ -77,19 +77,51 @@
             color: #666;
         }
         
-        .mobile-nav-links {
+        .side-nav-links {
             display: flex;
             flex-direction: column;
-            gap: 0;
+            padding: 8px 0;
         }
         
-        .mobile-nav-link {
-            padding: 15px 0;
+        .side-nav-link {
+            padding: 12px 20px;
             color: #333;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
             border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .side-nav-link:hover {
+            background: #f7f7f7;
+        }
+        
+        .side-menu-section {
+            padding: 16px 20px 8px;
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .premium-section {
+            background: #ffd700;
+            margin: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .premium-btn {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            width: 100%;
         }
         
         .container {
@@ -330,43 +362,6 @@
             line-height: 1.4;
             margin-top: 16px;
         }
-        
-        .app-promo {
-            background: #fff;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-            text-align: center;
-            border: 1px solid #e6e6e6;
-        }
-        
-        .app-promo-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        
-        .app-promo-text {
-            color: #666;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-        
-        .visit-btn {
-            background: #00a2ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* Десктопная навигация */
-        .top-nav {
-            display: none;
-        }
 
         /* Для десктопа */
         @media (min-width: 769px) {
@@ -447,28 +442,46 @@
 <body>
     <!-- Мобильная навигация -->
     <nav class="mobile-nav">
+        <button class="mobile-menu-btn">☰</button>
         <a href="https://www.roblox.com">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
         </a>
-        <button class="mobile-menu-btn">☰</button>
+        <div style="width: 24px;"></div> <!-- Для баланса -->
     </nav>
 
-    <!-- Мобильное меню -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-header">
+    <!-- Боковое меню -->
+    <div class="side-menu" id="side-menu">
+        <div class="side-menu-header">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo" style="height: 28px;">
-            <button class="mobile-menu-close">×</button>
+            <button class="side-menu-close">×</button>
         </div>
         
-        <div class="mobile-nav-links">
-            <a href="https://www.roblox.com/discover#!/popular" class="mobile-nav-link">Диаграммы</a>
-            <a href="https://www.roblox.com/catalog" class="mobile-nav-link">Торговая площадка</a>
-            <a href="https://create.roblox.com" class="mobile-nav-link">Создавать</a>
-            <a href="https://www.roblox.com/gamecards" class="mobile-nav-link">Робуксы</a>
+        <div class="side-nav-links">
+            <a href="#" class="side-nav-link">Дом</a>
+            <a href="#" class="side-nav-link">Профиль</a>
+            <a href="#" class="side-nav-link">Сообщения</a>
+            <a href="#" class="side-nav-link">Соединять</a>
+            <a href="#" class="side-nav-link">Аватар</a>
+            <a href="#" class="side-nav-link">Инвентарь</a>
+            <a href="#" class="side-nav-link">Торговля</a>
+            <a href="#" class="side-nav-link">Сообщества</a>
+            <a href="#" class="side-nav-link">Блог</a>
+            <a href="#" class="side-nav-link">Официальный магазин</a>
+        </div>
+        
+        <div class="side-menu-section">Категории</div>
+        <div class="side-nav-links">
+            <a href="https://www.roblox.com/discover#!/popular" class="side-nav-link">Диаграммы</a>
+            <a href="https://www.roblox.com/gamecards" class="side-nav-link">Подарочные карты</a>
+        </div>
+        
+        <div class="premium-section">
+            <div style="font-weight: 600; margin-bottom: 8px;">Получить Премиум</div>
+            <button class="premium-btn">Купить</button>
         </div>
     </div>
 
-    <!-- Десктопная навигация (только для ПК) -->
+    <!-- Десктопная навигация -->
     <nav class="top-nav">
         <div class="nav-container">
             <a href="https://www.roblox.com">
@@ -519,13 +532,6 @@
                 <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
                 <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
             </ul>
-        </div>
-
-        <!-- Блок с промо приложения -->
-        <div class="app-promo">
-            <div class="app-promo-title">Исследуйте Roblox в нашем приложении для Android!</div>
-            <div class="app-promo-text">Миллионы впечатлений от таких людей, как вы</div>
-            <button class="visit-btn">Посещать</button>
         </div>
         
         <div class="footer">
@@ -578,18 +584,18 @@
         const alertOverlay = document.getElementById('alert-overlay');
         const alertBackBtn = document.getElementById('alert-back-btn');
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const sideMenuClose = document.querySelector('.side-menu-close');
+        const sideMenu = document.getElementById('side-menu');
         
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
         
-        // Мобильное меню
+        // Боковое меню
         mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.style.display = 'block';
+            sideMenu.style.display = 'block';
         });
         
-        mobileMenuClose.addEventListener('click', function() {
-            mobileMenu.style.display = 'none';
+        sideMenuClose.addEventListener('click', function() {
+            sideMenu.style.display = 'none';
         });
         
         termsCheckbox.addEventListener('change', function() {

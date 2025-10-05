@@ -3,271 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Активировать коды Roblox</title>
-    <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
+    <title>Playerok - Проверка ID для доната</title>
     <style>
+        /* Стили остаются такими же */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Gotham SSm", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background-color: #f7f7f7;
-            color: #1a1a1a;
-            font-size: 14px;
-            line-height: 1.5;
-            display: flex;
-            flex-direction: column;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
         
         .container {
-            flex: 1;
-            max-width: 440px;
-            margin: 0 auto;
-            padding: 20px;
-            width: 100%;
-        }
-        
-        h1 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        
-        .subtitle {
-            font-size: 14px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        
-        .code-label {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-align: center;
-            color: #333;
-        }
-        
-        .code-input-container {
-            margin-bottom: 16px;
-        }
-        
-        .code-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-        
-        .terms-container {
-            margin-bottom: 16px;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .terms-checkbox {
-            margin-right: 8px;
-            margin-top: 2px;
-        }
-        
-        .terms {
-            font-size: 12px;
-            color: #666;
-            text-align: left;
-        }
-        
-        .terms a {
-            color: #00a2ff;
-            text-decoration: none;
-        }
-        
-        .redeem-btn {
-            width: 100%;
-            background: #00a2ff;
-            color: #fff;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-        
-        .redeem-btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-        }
-        
-        .info-title {
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #333;
-            font-size: 16px;
-        }
-        
-        .info-list {
-            list-style: none;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .info-list li {
-            margin-bottom: 8px;
-            padding-left: 0;
-        }
-        
-        .info-list a {
-            color: #00a2ff;
-            text-decoration: none;
-        }
-        
-        .alert-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .alert-box {
             background: white;
-            border-radius: 8px;
-            padding: 24px;
-            width: 90%;
-            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .error-message {
+            background: #ffeaa7;
+            border: 2px solid #fdcb6e;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            color: #e17055;
+            font-weight: bold;
         }
         
-        .alert-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #333;
-        }
-        
-        .alert-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        
-        .alert-btn {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .back-btn {
-            background: #00a2ff;
+        .retry-btn {
+            background: #e17055;
             color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Активировать коды Roblox</h1>
-        <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
-        
-        <div class="code-label">Код</div>
-        
-        <div class="code-input-container">
-            <input type="text" class="code-input" placeholder="Введите код" id="code-input">
+        <div id="errorMessage" class="error-message" style="display: none;">
+            Ошибка загрузки данных. Проверьте подключение к интернету.
+            <button class="retry-btn" onclick="retryLoad()">Повторить</button>
         </div>
         
-        <div class="terms-container">
-            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
-            <label for="terms-checkbox" class="terms">
-                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими Условиями использования, включая арбитражную оговорку и Условия использования подарочных карт, а также с нашей Политикой конфиденциальности. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
-            </label>
+        <div class="logo">
+            <h1>🎮 Playerok</h1>
+            <p>Проверка уникального ID для доната</p>
         </div>
         
-        <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
-        
-        <div class="info-title">Дополнительная информация</div>
-        <ul class="info-list">
-            <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
-            <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
-            <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
-            <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
-        </ul>
-    </div>
-
-    <div class="alert-overlay" id="alert-overlay">
-        <div class="alert-box">
-            <div class="alert-title">Код успешно активирован</div>
-            <div class="alert-buttons">
-                <button class="alert-btn back-btn" id="alert-back-btn">Вернуться к активации</button>
+        <div class="info-card">
+            <div class="info-item">
+                <div class="info-label">🆔 Ваш уникальный ID:</div>
+                <div class="info-value" id="uniqueId">Загрузка...</div>
             </div>
+            
+            <div class="info-item">
+                <div class="info-label">📍 Регион доступа:</div>
+                <div class="info-value" id="userRegion">Загрузка...</div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-label">💻 Система:</div>
+                <div class="info-value" id="userSystem">Загрузка...</div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-label">🌐 Браузер:</div>
+                <div class="info-value" id="userBrowser">Загрузка...</div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-label">⏰ Время проверки:</div>
+                <div class="info-value" id="checkTime">Загрузка...</div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Инструкция для доната:</h3>
+            <ol>
+                <li>Сделайте скриншот этой страницы</li>
+                <li>Отправьте скриншот продавцу</li>
+                <li>Продавец проверит ваш ID в системе</li>
+                <li>После проверки сможете сделать донат</li>
+            </ol>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn btn-primary" onclick="takeScreenshot()">
+                📸 Сделать скриншот
+            </button>
+            <button class="btn btn-secondary" onclick="copyData()">
+                📋 Скопировать ID
+            </button>
         </div>
     </div>
 
     <script>
-        const termsCheckbox = document.getElementById('terms-checkbox');
-        const redeemBtn = document.getElementById('redeem-btn');
-        const codeInput = document.getElementById('code-input');
-        const alertOverlay = document.getElementById('alert-overlay');
-        const alertBackBtn = document.getElementById('alert-back-btn');
-        
-        const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
-        
-        termsCheckbox.addEventListener('change', function() {
-            redeemBtn.disabled = !this.checked;
-        });
-        
-        redeemBtn.addEventListener('click', function() {
-            if (!termsCheckbox.checked) {
-                alert('Пожалуйста, подтвердите согласие с условиями использования.');
-                return;
-            }
-            
-            const code = codeInput.value.trim();
-            if (!code) {
-                alert('Пожалуйста, введите код.');
-                return;
-            }
-            
-            if (validCodes.includes(code.toUpperCase())) {
-                showSuccessAlert();
-            } else {
-                alert('Неверный код. Проверьте ввод и попробуйте снова.');
-            }
-        });
-        
-        function showSuccessAlert() {
-            alertOverlay.style.display = 'flex';
+        // Упрощенная версия без внешних API
+        function generateUniqueId() {
+            const timestamp = Date.now().toString(36);
+            const random = Math.random().toString(36).substr(2, 9);
+            return `PLR${timestamp}${random}`.toUpperCase();
         }
         
-        alertBackBtn.addEventListener('click', function() {
-            window.location.href = 'https://wdho.ru/7Wvm';
-        });
-
-        alertOverlay.addEventListener('click', function(e) {
-            if (e.target === alertOverlay) {
-                alertOverlay.style.display = 'none';
-                codeInput.value = '';
-                termsCheckbox.checked = false;
-                redeemBtn.disabled = true;
+        function getBrowserInfo() {
+            const ua = navigator.userAgent;
+            if (ua.includes('Chrome')) return 'Chrome';
+            if (ua.includes('Firefox')) return 'Firefox';
+            if (ua.includes('Safari')) return 'Safari';
+            if (ua.includes('Edge')) return 'Edge';
+            return 'Браузер';
+        }
+        
+        function getSystemInfo() {
+            const ua = navigator.userAgent;
+            if (ua.includes('Android')) return 'Android';
+            if (ua.includes('iPhone') || ua.includes('iPad')) return 'iOS';
+            if (ua.includes('Windows')) return 'Windows';
+            if (ua.includes('Mac')) return 'MacOS';
+            if (ua.includes('Linux')) return 'Linux';
+            return 'Система';
+        }
+        
+        async function loadUserData() {
+            try {
+                // Генерируем ID сразу
+                const uniqueId = generateUniqueId();
+                document.getElementById('uniqueId').textContent = uniqueId;
+                
+                // Основные данные
+                document.getElementById('userSystem').textContent = `${getSystemInfo()} | ${screen.width}x${screen.height}`;
+                document.getElementById('userBrowser').textContent = getBrowserInfo();
+                document.getElementById('checkTime').textContent = new Date().toLocaleString('ru-RU');
+                
+                // Пытаемся получить регион (с таймаутом)
+                const regionPromise = new Promise(async (resolve) => {
+                    try {
+                        const response = await fetch('https://api.ipify.org?format=json');
+                        const data = await response.json();
+                        
+                        const geoResponse = await fetch(`https://ipapi.co/${data.ip}/json/`);
+                        const geoData = await geoResponse.json();
+                        resolve(`${geoData.city || 'Неизвестно'}, ${geoData.country_name || 'Неизвестно'}`);
+                    } catch (error) {
+                        resolve('Регион не определен');
+                    }
+                });
+                
+                // Ждем максимум 3 секунды
+                const timeoutPromise = new Promise(resolve => {
+                    setTimeout(() => resolve('Регион: проверка...'), 3000);
+                });
+                
+                const region = await Promise.race([regionPromise, timeoutPromise]);
+                document.getElementById('userRegion').textContent = region;
+                
+            } catch (error) {
+                showError();
             }
-        });
+        }
+        
+        function showError() {
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('userRegion').textContent = 'Ошибка загрузки';
+            document.getElementById('uniqueId').textContent = 'PLRERROR' + Date.now().toString(36);
+        }
+        
+        function retryLoad() {
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('uniqueId').textContent = 'Загрузка...';
+            document.getElementById('userRegion').textContent = 'Загрузка...';
+            loadUserData();
+        }
+        
+        function takeScreenshot() {
+            alert('✅ Сделайте скриншот этой страницы и отправьте продавцу!\n\nНа Android: Кнопка питания + Уменьшение громкости\nНа ПК: PrintScreen или Win+Shift+S');
+        }
+        
+        function copyData() {
+            const uniqueId = document.getElementById('uniqueId').textContent;
+            if (uniqueId && uniqueId !== 'Загрузка...') {
+                navigator.clipboard.writeText(uniqueId).then(() => {
+                    alert('✅ ID скопирован в буфер обмена!');
+                });
+            } else {
+                alert('❌ ID еще не загружен');
+            }
+        }
+        
+        // Запускаем при загрузке
+        document.addEventListener('DOMContentLoaded', loadUserData);
+        
+        // Альтернатива: если через 5 секунд все еще грузится
+        setTimeout(() => {
+            if (document.getElementById('uniqueId').textContent === 'Загрузка...') {
+                showError();
+            }
+        }, 5000);
     </script>
 </body>
 </html>

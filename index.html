@@ -241,6 +241,94 @@
             cursor: not-allowed;
         }
         
+        /* Стили для бокового меню */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .side-menu.active {
+            left: 0;
+        }
+        
+        .side-menu-header {
+            padding: 16px;
+            border-bottom: 1px solid #e6e6e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .side-menu-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .side-menu-logo {
+            height: 28px;
+        }
+        
+        .side-menu-content {
+            padding: 16px;
+        }
+        
+        .side-menu-section {
+            margin-bottom: 24px;
+        }
+        
+        .side-menu-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .side-menu-list {
+            list-style: none;
+        }
+        
+        .side-menu-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .side-menu-link {
+            color: #666;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+        
+        .side-menu-link:hover {
+            color: #00a2ff;
+        }
+        
+        .side-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .side-menu-overlay.active {
+            display: block;
+        }
+        
         /* Стили для всплывающего оповещения */
         .alert-overlay {
             display: none;
@@ -403,7 +491,7 @@
     <nav class="top-nav">
         <div class="nav-container">
             <div class="nav-left">
-                <div class="burger-menu">
+                <div class="burger-menu" id="burger-menu">
                     <div class="burger-line"></div>
                     <div class="burger-line"></div>
                     <div class="burger-line"></div>
@@ -432,6 +520,58 @@
         </a>
         <div class="mobile-menu-dots"></div>
     </nav>
+
+    <!-- Боковое меню -->
+    <div class="side-menu" id="side-menu">
+        <div class="side-menu-header">
+            <a href="https://www.roblox.com">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="side-menu-logo">
+            </a>
+            <button class="side-menu-close" id="side-menu-close">×</button>
+        </div>
+        <div class="side-menu-content">
+            <div class="side-menu-section">
+                <div class="side-menu-title">Навигация</div>
+                <ul class="side-menu-list">
+                    <li class="side-menu-item"><a href="https://www.roblox.com/discover#!/popular" class="side-menu-link">Диаграммы</a></li>
+                    <li class="side-menu-item"><a href="https://www.roblox.com/catalog" class="side-menu-link">Торговая площадка</a></li>
+                    <li class="side-menu-item"><a href="https://create.roblox.com" class="side-menu-link">Создавать</a></li>
+                    <li class="side-menu-item"><a href="https://www.roblox.com/gamecards" class="side-menu-link">Робуксы</a></li>
+                </ul>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-title">Аккаунт</div>
+                <ul class="side-menu-list">
+                    <li class="side-menu-item"><a href="https://www.roblox.com/login" class="side-menu-link">Войти</a></li>
+                    <li class="side-menu-item"><a href="https://www.roblox.com/register" class="side-menu-link">Регистрация</a></li>
+                    <li class="side-menu-item"><a href="https://www.roblox.com/users/inventory" class="side-menu-link">Инвентарь</a></li>
+                </ul>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-title">Сообщество</div>
+                <ul class="side-menu-list">
+                    <li class="side-menu-item"><a href="https://blog.roblox.com/" class="side-menu-link">Блог</a></li>
+                    <li class="side-menu-item"><a href="https://devforum.roblox.com/" class="side-menu-link">Форум разработчиков</a></li>
+                    <li class="side-menu-item"><a href="https://en.help.roblox.com/hc/en-us" class="side-menu-link">Помощь</a></li>
+                </ul>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-title">Информация</div>
+                <ul class="side-menu-list">
+                    <li class="side-menu-item"><a href="https://www.roblox.com/info/about" class="side-menu-link">О нас</a></li>
+                    <li class="side-menu-item"><a href="https://corp.roblox.com/careers/" class="side-menu-link">Работа</a></li>
+                    <li class="side-menu-item"><a href="https://corp.roblox.com/parents/" class="side-menu-link">Родители</a></li>
+                    <li class="side-menu-item"><a href="https://corp.roblox.com/accessibility/" class="side-menu-link">Доступность</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Затемнение фона при открытом меню -->
+    <div class="side-menu-overlay" id="side-menu-overlay"></div>
 
     <div class="container">
         <h1>Активировать коды Roblox</h1>
@@ -520,9 +660,29 @@
         const codeInput = document.getElementById('code-input');
         const alertOverlay = document.getElementById('alert-overlay');
         const alertBackBtn = document.getElementById('alert-back-btn');
+        const burgerMenu = document.getElementById('burger-menu');
+        const sideMenu = document.getElementById('side-menu');
+        const sideMenuClose = document.getElementById('side-menu-close');
+        const sideMenuOverlay = document.getElementById('side-menu-overlay');
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
+        
+        // Открытие/закрытие бокового меню
+        burgerMenu.addEventListener('click', function() {
+            sideMenu.classList.add('active');
+            sideMenuOverlay.classList.add('active');
+        });
+        
+        sideMenuClose.addEventListener('click', function() {
+            sideMenu.classList.remove('active');
+            sideMenuOverlay.classList.remove('active');
+        });
+        
+        sideMenuOverlay.addEventListener('click', function() {
+            sideMenu.classList.remove('active');
+            sideMenuOverlay.classList.remove('active');
+        });
         
         termsCheckbox.addEventListener('change', function() {
             if (this.checked) {

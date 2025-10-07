@@ -120,34 +120,28 @@
             border-bottom: 1px solid #e6e6e6;
             padding: 8px 16px;
             display: none;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
+            gap: 16px;
         }
         
-        .mobile-menu-dots {
+        .mobile-burger-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        .mobile-burger-line {
             width: 20px;
-            height: 4px;
-            background: #666;
-            border-radius: 2px;
-            position: relative;
+            height: 2px;
+            background-color: #333;
+            border-radius: 1px;
         }
         
-        .mobile-menu-dots::before,
-        .mobile-menu-dots::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 4px;
-            background: #666;
-            border-radius: 2px;
-        }
-        
-        .mobile-menu-dots::before {
-            top: -8px;
-        }
-        
-        .mobile-menu-dots::after {
-            top: 8px;
+        .mobile-nav-logo {
+            height: 28px;
         }
         
         .container {
@@ -524,10 +518,14 @@
 
     <!-- Мобильная навигация -->
     <nav class="mobile-nav">
+        <div class="mobile-burger-menu" id="mobile-burger-menu">
+            <div class="mobile-burger-line"></div>
+            <div class="mobile-burger-line"></div>
+            <div class="mobile-burger-line"></div>
+        </div>
         <a href="https://www.roblox.com">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo" style="height: 28px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="mobile-nav-logo">
         </a>
-        <div class="mobile-menu-dots"></div>
     </nav>
 
     <!-- Боковое меню -->
@@ -780,6 +778,7 @@
         const alertOverlay = document.getElementById('alert-overlay');
         const alertBackBtn = document.getElementById('alert-back-btn');
         const burgerMenu = document.getElementById('burger-menu');
+        const mobileBurgerMenu = document.getElementById('mobile-burger-menu');
         const sideMenu = document.getElementById('side-menu');
         const sideMenuClose = document.getElementById('side-menu-close');
         const sideMenuOverlay = document.getElementById('side-menu-overlay');
@@ -789,6 +788,11 @@
         
         // Открытие/закрытие бокового меню
         burgerMenu.addEventListener('click', function() {
+            sideMenu.classList.add('active');
+            sideMenuOverlay.classList.add('active');
+        });
+        
+        mobileBurgerMenu.addEventListener('click', function() {
             sideMenu.classList.add('active');
             sideMenuOverlay.classList.add('active');
         });

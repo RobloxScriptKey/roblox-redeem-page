@@ -160,10 +160,19 @@
         .mobile-search-btn {
             background: none;
             border: none;
-            font-size: 18px;
             cursor: pointer;
             color: #666;
             padding: 4px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-search-icon {
+            width: 18px;
+            height: 18px;
         }
         
         .mobile-nav-center {
@@ -598,7 +607,7 @@
                 <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
                 <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
                 <a href="https://create.roblox.com" class="nav-link">Создавать</a>
-                <a href="https://www.roblox.com/gamecards" class="nav-link active">Робуксы</a>
+                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
             </div>
             <div class="nav-actions">
                 <input type="text" class="search-box" placeholder="Поиск">
@@ -620,14 +629,18 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="mobile-nav-logo">
                 </a>
             </div>
-            <button class="mobile-search-btn" id="mobile-search-btn">🔍</button>
+            <button class="mobile-search-btn" id="mobile-search-btn">
+                <svg class="mobile-search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
         
         <div class="mobile-nav-center">
             <a href="https://www.roblox.com/discover#!/popular" class="mobile-nav-link">Диаграммы</a>
             <a href="https://www.roblox.com/catalog" class="mobile-nav-link">Торговая площадка</a>
             <a href="https://create.roblox.com" class="mobile-nav-link">Создавать</a>
-            <a href="https://www.roblox.com/gamecards" class="mobile-nav-link active">Робуксы</a>
+            <a href="https://www.roblox.com/gamecards" class="mobile-nav-link">Робуксы</a>
         </div>
         
         <div class="mobile-search-container" id="mobile-search-container">

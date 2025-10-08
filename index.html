@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Активировать коды Roblox</title>
     <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
     <style>
@@ -11,18 +11,15 @@
             padding: 0;
             box-sizing: border-box;
             font-family: "Gotham SSm", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            -webkit-tap-highlight-color: transparent !important;
+            tap-highlight-color: transparent !important;
         }
         
         /* Убираем outline для всех элементов формы */
         input, button, textarea, select {
             outline: none;
+            -webkit-tap-highlight-color: transparent !important;
+            tap-highlight-color: transparent !important;
         }
 
         input:focus, button:focus, textarea:focus, select:focus {
@@ -30,13 +27,9 @@
             box-shadow: none;
         }
 
-        /* Разрешаем выделение для input и textarea */
-        input, textarea {
-            -webkit-user-select: text;
-            -khtml-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
+        /* Отключаем выделение при тапе на мобильных */
+        *:focus {
+            outline: none !important;
         }
         
         body {
@@ -47,8 +40,8 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            -webkit-tap-highlight-color: transparent;
-            tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: transparent !important;
+            tap-highlight-color: transparent !important;
         }
         
         .top-nav {
@@ -323,8 +316,10 @@
             margin-bottom: 16px;
             display: flex;
             align-items: flex-start;
-            -webkit-tap-highlight-color: transparent;
-            tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: transparent !important;
+            tap-highlight-color: transparent !important;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         .terms-checkbox {
@@ -341,6 +336,7 @@
             flex-shrink: 0;
             /* Убираем outline при фокусе */
             outline: none;
+            -webkit-tap-highlight-color: transparent !important;
         }
         
         .terms-checkbox:focus {
@@ -368,6 +364,9 @@
             font-size: 12px;
             color: #666;
             text-align: left;
+            -webkit-tap-highlight-color: transparent !important;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         .terms a {
@@ -392,6 +391,7 @@
             font-weight: 600;
             position: relative;
             transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent !important;
         }
         
         .redeem-btn:hover {
@@ -486,6 +486,7 @@
             gap: 12px;
             font-size: 14px;
             width: 100%;
+            -webkit-tap-highlight-color: transparent !important;
         }
         
         .side-menu-link:hover {
@@ -990,10 +991,9 @@
                         <a href="https://www.roblox.com/groups" class="side-menu-link">
                             <div class="side-menu-icon">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 7H15C15.7956 7 16.5587 7.31607 17.1213 7.87868C17.6839 8.44129 18 9.20435 18 10V16C18 16.7956 17.6839 17.5587 17.1213 18.1213C16.5587 18.6839 15.7956 19 15 19H9C8.20435 19 7.44129 18.6839 6.87868 18.1213C6.31607 17.5587 6 16.7956 6 16V10C6 9.20435 6.31607 8.44129 6.87868 7.87868C7.44129 7.31607 8.20435 7 9 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </div>
                             <span>Сообщества</span>
@@ -1176,6 +1176,13 @@
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
         
+        // Жесткое отключение highlight на мобильных
+        document.addEventListener('touchstart', function(e) {
+            if (e.target.type === 'checkbox' || e.target.closest('.terms-container')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
         // Предотвращаем стандартный outline при фокусе для всех кнопок
         document.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('mousedown', function(e) {

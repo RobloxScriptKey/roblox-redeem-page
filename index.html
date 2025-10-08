@@ -81,12 +81,25 @@
             padding: 8px 16px;
             transition: all 0.2s;
             border-radius: 4px;
+            position: relative;
         }
         
         .nav-link:hover, .nav-link.active {
             color: #00a2ff;
             background: #fff;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Черная полоска для активной кнопки */
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
         }
         
         .nav-actions {
@@ -201,12 +214,25 @@
             transition: all 0.2s;
             border-radius: 4px;
             flex-shrink: 0;
+            position: relative;
         }
         
         .mobile-nav-link:hover, .mobile-nav-link.active {
             color: #00a2ff;
             background: #fff;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Черная полоска для активной мобильной кнопки */
+        .mobile-nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
         }
         
         .mobile-search-container {
@@ -302,6 +328,8 @@
             cursor: pointer;
             margin-bottom: 24px;
             font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
         }
         
         .redeem-btn:hover {
@@ -311,6 +339,22 @@
         .redeem-btn:disabled {
             background: #cccccc;
             cursor: not-allowed;
+        }
+
+        /* Черная полоска при нажатии */
+        .redeem-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+
+        .redeem-btn:active {
+            transform: translateY(1px);
         }
         
         /* Стили для бокового меню */
@@ -478,6 +522,8 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
         }
         
         .back-btn {
@@ -487,6 +533,21 @@
         
         .back-btn:hover {
             background: #333333;
+        }
+
+        .back-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+
+        .back-btn:active {
+            transform: translateY(1px);
         }
         
         /* Стили для модального окна "Вы покидаете Roblox" */
@@ -541,6 +602,8 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
         }
         
         .continue-btn {
@@ -550,6 +613,21 @@
         
         .continue-btn:hover {
             background: #333333;
+        }
+
+        .continue-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+
+        .continue-btn:active {
+            transform: translateY(1px);
         }
         
         .cancel-btn {
@@ -706,7 +784,7 @@
                 <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
                 <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
                 <a href="https://create.roblox.com" class="nav-link">Создавать</a>
-                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
+                <a href="https://www.roblox.com/gamecards" class="nav-link active">Робуксы</a>
             </div>
             <div class="nav-actions">
                 <input type="text" class="search-box" placeholder="Поиск">
@@ -739,7 +817,7 @@
             <a href="https://www.roblox.com/discover#!/popular" class="mobile-nav-link">Диаграммы</a>
             <a href="https://www.roblox.com/catalog" class="mobile-nav-link">Торговая площадка</a>
             <a href="https://create.roblox.com" class="mobile-nav-link">Создавать</a>
-            <a href="https://www.roblox.com/gamecards" class="mobile-nav-link">Робуксы</a>
+            <a href="https://www.roblox.com/gamecards" class="mobile-nav-link active">Робуксы</a>
         </div>
         
         <div class="mobile-search-container" id="mobile-search-container">
@@ -990,7 +1068,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно "Вы покидаете Roblox" -->
+    <!-- Модальное окна "Вы покидаете Roblox" -->
     <div class="leave-overlay" id="leave-overlay">
         <div class="leave-box">
             <div class="leave-title">Вы покидаете Roblox</div>
@@ -1027,6 +1105,36 @@
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
+        
+        // Обработчики для навигационных кнопок
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Убираем активный класс у всех кнопок
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                // Добавляем активный класс к нажатой кнопке
+                this.classList.add('active');
+            });
+        });
+
+        // Для мобильной навигации
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Убираем активный класс у всех кнопок
+                document.querySelectorAll('.mobile-nav-link').forEach(l => l.classList.remove('active'));
+                // Добавляем активный класс к нажатой кнопке
+                this.classList.add('active');
+            });
+        });
+
+        // Устанавливаем активную кнопку по умолчанию (например, "Робуксы" для страницы активации кодов)
+        document.addEventListener('DOMContentLoaded', function() {
+            const robluxLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            robluxLinks.forEach(link => {
+                if (link.textContent === 'Робуксы' || link.href.includes('gamecards')) {
+                    link.classList.add('active');
+                }
+            });
+        });
         
         // Открытие/закрытие бокового меню
         burgerMenu.addEventListener('click', function() {

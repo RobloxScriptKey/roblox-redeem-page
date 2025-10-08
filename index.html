@@ -13,6 +13,16 @@
             font-family: "Gotham SSm", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         
+        /* Убираем outline для всех элементов формы */
+        input, button, textarea, select {
+            outline: none;
+        }
+
+        input:focus, button:focus, textarea:focus, select:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        
         body {
             background-color: #f7f7f7;
             color: #1a1a1a;
@@ -309,6 +319,13 @@
             cursor: pointer;
             position: relative;
             flex-shrink: 0;
+            /* Убираем outline при фокусе */
+            outline: none;
+        }
+        
+        .terms-checkbox:focus {
+            outline: none;
+            box-shadow: none;
         }
         
         .terms-checkbox:checked {
@@ -1139,11 +1156,23 @@
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
         
-        // Предотвращаем стандартный outline при фокусе
+        // Предотвращаем стандартный outline при фокусе для всех кнопок
         document.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('mousedown', function(e) {
                 e.preventDefault();
             });
+        });
+
+        // Убираем outline при фокусе на чекбоксе
+        document.getElementById('terms-checkbox').addEventListener('focus', function() {
+            this.style.outline = 'none';
+            this.style.boxShadow = 'none';
+        });
+
+        // Также для мобильных устройств
+        document.getElementById('terms-checkbox').addEventListener('touchstart', function() {
+            this.style.outline = 'none';
+            this.style.boxShadow = 'none';
         });
 
         // Обработчики для навигационных кнопок

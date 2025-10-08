@@ -149,11 +149,11 @@
             text-decoration: none;
         }
         
-        /* Мобильная навигация */
+        /* Мобильная навигация - ИСПРАВЛЕННАЯ */
         .mobile-nav {
             background: #fff;
             border-bottom: 1px solid #e6e6e6;
-            padding: 8px 16px 16px 16px; /* Увеличиваем нижний padding для полоски */
+            padding: 12px 16px 20px 16px;
             display: none;
             flex-direction: column;
             gap: 12px;
@@ -197,16 +197,6 @@
             cursor: pointer;
             color: #666;
             padding: 4px;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .mobile-search-icon {
-            width: 18px;
-            height: 18px;
         }
         
         .mobile-nav-center {
@@ -214,11 +204,9 @@
             gap: 4px;
             background: #f7f7f7;
             border-radius: 4px;
-            padding: 4px;
+            padding: 8px 4px 16px 4px;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
         }
         
         .mobile-nav-center::-webkit-scrollbar {
@@ -230,12 +218,12 @@
             text-decoration: none;
             font-size: 12px;
             font-weight: 500;
-            padding: 6px 12px;
+            padding: 8px 12px 12px 12px;
             white-space: nowrap;
             transition: all 0.2s;
             border-radius: 4px;
             flex-shrink: 0;
-            position: relative; /* Добавляем для полоски */
+            position: relative;
         }
         
         .mobile-nav-link:hover, .mobile-nav-link.active {
@@ -244,13 +232,14 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        /* Черная полоска для активной кнопки в мобильной навигации */
+        /* Черная полоска для активной кнопки в мобильной навигации - ИСПРАВЛЕННАЯ */
         .mobile-nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
+            bottom: 8px;
+            left: 12px;
+            right: 12px;
+            width: calc(100% - 24px);
             height: 2px;
             background: #000000;
             border-radius: 1px;
@@ -274,7 +263,6 @@
             max-width: 440px;
             margin: 0 auto;
             padding: 16px;
-            margin-top: 8px; /* Добавляем отступ сверху для мобильной версии */
         }
         
         h1 {
@@ -296,7 +284,6 @@
             font-weight: 600;
             margin-bottom: 16px;
             text-align: center;
-            color: #333;
         }
         
         .code-input-container {
@@ -813,28 +800,6 @@
             .mobile-nav {
                 display: flex;
             }
-            
-            .container {
-                padding-top: 8px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .mobile-nav-link {
-                font-size: 11px;
-                padding: 6px 10px;
-            }
-            
-            .mobile-nav-center {
-                gap: 2px;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .mobile-nav-link {
-                font-size: 10px;
-                padding: 5px 8px;
-            }
         }
     </style>
 </head>
@@ -865,7 +830,7 @@
         </div>
     </nav>
 
-    <!-- Мобильная навигация -->
+    <!-- Мобильная навигация - ИСПРАВЛЕННАЯ -->
     <nav class="mobile-nav">
         <div class="mobile-nav-top">
             <div class="mobile-nav-left">
@@ -879,9 +844,7 @@
                 </a>
             </div>
             <button class="mobile-search-btn" id="mobile-search-btn">
-                <svg class="mobile-search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                🔍
             </button>
         </div>
         
@@ -1074,15 +1037,12 @@
         <h1>Активировать коды Roblox</h1>
         <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
         
-        <!-- Просто текст "Код" как в оригинале -->
         <div class="code-label">Код</div>
         
-        <!-- Поле для ввода кода -->
         <div class="code-input-container">
             <input type="text" class="code-input" placeholder="Введите код" id="code-input">
         </div>
         
-        <!-- Чекбокс с условиями -->
         <div class="terms-container">
             <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
             <label for="terms-checkbox" class="terms">
@@ -1092,12 +1052,10 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <!-- Секция с фотографией подарочной карты -->
         <div class="photo-section">
             <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
         </div>
         
-        <!-- Дополнительная информация -->
         <div class="info-panel">
             <div class="info-title">Дополнительная информация</div>
             <ul class="info-list">

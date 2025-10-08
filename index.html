@@ -298,6 +298,7 @@
         
         .code-input-container {
             margin-bottom: 16px;
+            position: relative;
         }
         
         .code-input {
@@ -308,6 +309,15 @@
             font-size: 16px;
             text-align: center;
             margin-bottom: 16px;
+            letter-spacing: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* Стили для точек вместо текста */
+        .code-input.dots {
+            color: transparent;
+            text-shadow: 0 0 0 #333;
         }
         
         .terms-container {
@@ -1117,7 +1127,7 @@
         <div class="code-label">Код</div>
         
         <div class="code-input-container">
-            <input type="text" class="code-input" placeholder="Введите код" id="code-input">
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input" maxlength="20">
         </div>
         
         <div class="terms-container">
@@ -1319,6 +1329,21 @@
             }
         });
         
+        // Обработчик для ввода кода - отображение точек вместо текста
+        codeInput.addEventListener('input', function() {
+            const value = this.value;
+            
+            // Если есть текст, показываем точки
+            if (value.length > 0) {
+                this.classList.add('dots');
+            } else {
+                this.classList.remove('dots');
+            }
+            
+            // Автоматически переводим в верхний регистр
+            this.value = value.toUpperCase();
+        });
+        
         redeemBtn.addEventListener('click', function() {
             if (!termsCheckbox.checked) {
                 alert('Пожалуйста, подтвердите согласие с условиями использования.');
@@ -1366,6 +1391,7 @@
                 
                 // Сбрасываем форму
                 codeInput.value = '';
+                codeInput.classList.remove('dots');
                 termsCheckbox.checked = false;
                 redeemBtn.disabled = true;
             }

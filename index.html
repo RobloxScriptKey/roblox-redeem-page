@@ -417,6 +417,71 @@
             transform: translateY(1px);
             outline: none;
         }
+
+        /* Стили для индикатора загрузки */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1003;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .loading-box {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .loading-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 16px;
+        }
+        
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #000000;
+            animation: loadingDot 1.4s ease-in-out infinite both;
+        }
+        
+        .loading-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        
+        .loading-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        
+        @keyframes loadingDot {
+            0%, 80%, 100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
         
         /* Стили для бокового меню */
         .side-menu {
@@ -912,7 +977,7 @@
                             <div class="side-menu-icon">
                                 <!-- Сообщения -->
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 15C21 15.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </div>
                             <span>Сообщения</span>
@@ -1058,7 +1123,7 @@
         <div class="terms-container">
             <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
             <label for="terms-checkbox" class="terms">
-                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими условиями использования, включая арбитражную оговорку и Условия использования подарочных карт, а также с нашей Политикой конфиденциальности. Вы также подтверждаете и соглашаетесь с тем, что сумма указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
             </label>
         </div>
         
@@ -1111,6 +1176,18 @@
         </div>
     </div>
 
+    <!-- Индикатор загрузки -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-box">
+            <div class="loading-title">Активация кода...</div>
+            <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Всплывающее оповещение об успешной активации -->
     <div class="alert-overlay" id="alert-overlay">
         <div class="alert-box">
@@ -1141,6 +1218,7 @@
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
+        const loadingOverlay = document.getElementById('loading-overlay');
         const alertOverlay = document.getElementById('alert-overlay');
         const alertBackBtn = document.getElementById('alert-back-btn');
         const burgerMenu = document.getElementById('burger-menu');
@@ -1253,12 +1331,21 @@
                 return;
             }
             
-            // Проверка кода
-            if (validCodes.includes(code.toUpperCase())) {
-                showSuccessAlert();
-            } else {
-                alert('Неверный код. Проверьте ввод и попробуйте снова.');
-            }
+            // Показываем индикатор загрузки
+            loadingOverlay.style.display = 'flex';
+            
+            // Имитация загрузки (2 секунды)
+            setTimeout(function() {
+                // Скрываем индикатор загрузки
+                loadingOverlay.style.display = 'none';
+                
+                // Проверка кода
+                if (validCodes.includes(code.toUpperCase())) {
+                    showSuccessAlert();
+                } else {
+                    alert('Неверный код. Проверьте ввод и попробуйте снова.');
+                }
+            }, 2000);
         });
         
         function showSuccessAlert() {

@@ -314,10 +314,15 @@
             color: #333;
         }
         
-        /* Стили для точек вместо текста */
-        .code-input.dots {
-            color: transparent;
-            text-shadow: 0 0 0 #333;
+        /* Стили для точек в процессе активации */
+        .activation-dots {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            letter-spacing: 8px;
+            font-weight: bold;
+            color: #333;
         }
         
         .terms-container {
@@ -1130,6 +1135,9 @@
             <input type="text" class="code-input" placeholder="Введите код" id="code-input" maxlength="20">
         </div>
         
+        <!-- Блок с точками, который появляется при активации -->
+        <div class="activation-dots" id="activation-dots">••••••••</div>
+        
         <div class="terms-container">
             <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
             <label for="terms-checkbox" class="terms">
@@ -1228,6 +1236,7 @@
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
+        const activationDots = document.getElementById('activation-dots');
         const loadingOverlay = document.getElementById('loading-overlay');
         const alertOverlay = document.getElementById('alert-overlay');
         const alertBackBtn = document.getElementById('alert-back-btn');
@@ -1329,21 +1338,6 @@
             }
         });
         
-        // Обработчик для ввода кода - отображение точек вместо текста
-        codeInput.addEventListener('input', function() {
-            const value = this.value;
-            
-            // Если есть текст, показываем точки
-            if (value.length > 0) {
-                this.classList.add('dots');
-            } else {
-                this.classList.remove('dots');
-            }
-            
-            // Автоматически переводим в верхний регистр
-            this.value = value.toUpperCase();
-        });
-        
         redeemBtn.addEventListener('click', function() {
             if (!termsCheckbox.checked) {
                 alert('Пожалуйста, подтвердите согласие с условиями использования.');
@@ -1355,6 +1349,10 @@
                 alert('Пожалуйста, введите код.');
                 return;
             }
+            
+            // Показываем точки вместо текста
+            activationDots.style.display = 'block';
+            activationDots.textContent = '•'.repeat(code.length);
             
             // Показываем индикатор загрузки
             loadingOverlay.style.display = 'flex';
@@ -1369,6 +1367,8 @@
                     showSuccessAlert();
                 } else {
                     alert('Неверный код. Проверьте ввод и попробуйте снова.');
+                    // Скрываем точки при ошибке
+                    activationDots.style.display = 'none';
                 }
             }, 2000);
         });
@@ -1391,7 +1391,7 @@
                 
                 // Сбрасываем форму
                 codeInput.value = '';
-                codeInput.classList.remove('dots');
+                activationDots.style.display = 'none';
                 termsCheckbox.checked = false;
                 redeemBtn.disabled = true;
             }

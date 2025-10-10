@@ -608,8 +608,7 @@
             color: white !important;
         }
         
-        /* Стили для всплывающего окна успеха (как на скриншоте) */
-        .success-alert-overlay {
+        .alert-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -617,159 +616,163 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.5);
-            z-index: 1004;
+            z-index: 1000;
             align-items: center;
             justify-content: center;
         }
         
-        .success-alert-box {
+        .alert-box {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .alert-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        
+        .alert-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .alert-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .back-btn {
+            background: #000000;
+            color: white;
+        }
+        
+        .back-btn:hover {
+            background: #333333;
+        }
+
+        .back-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+
+        .back-btn:active {
+            transform: translateY(1px);
+            outline: none;
+        }
+        
+        .leave-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .leave-box {
             background: white;
             border-radius: 12px;
-            padding: 30px 24px;
+            padding: 24px;
             width: 90%;
             max-width: 400px;
             text-align: center;
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
         
-        .success-alert-title {
-            font-size: 22px;
+        .leave-title {
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             color: #333;
         }
         
-        .success-alert-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        
-        .success-alert-btn {
-            padding: 14px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-        
-        .success-alert-primary {
-            background: #000000;
-            color: white;
-        }
-        
-        .success-alert-primary:hover {
-            background: #333333;
-        }
-        
-        .success-alert-primary:active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #000000;
-            border-radius: 1px;
-        }
-        
-        .success-alert-primary:active {
-            transform: translateY(1px);
-            outline: none;
-        }
-        
-        /* Стили для страницы с файлами */
-        .files-page {
-            display: none;
-        }
-        
-        .files-container {
-            background: white;
-            border-radius: 12px;
-            padding: 30px 24px;
-            max-width: 440px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 20px auto;
-        }
-        
-        .files-title {
-            color: #333;
-            margin-bottom: 24px;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        
-        .files-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        
-        .file-btn {
-            padding: 16px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .file-btn-primary {
-            background: #000000;
-            color: white;
-        }
-        
-        .file-btn-primary:hover {
-            background: #333333;
-        }
-        
-        .file-btn-secondary {
-            background: #00a2ff;
-            color: white;
-        }
-        
-        .file-btn-secondary:hover {
-            background: #0088cc;
-        }
-        
-        .file-btn:active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: currentColor;
-            border-radius: 1px;
-            opacity: 0.7;
-        }
-        
-        .file-btn:active {
-            transform: translateY(1px);
-            outline: none;
-        }
-        
-        .back-link {
-            color: #007bff;
-            text-decoration: none;
+        .leave-text {
             font-size: 14px;
-            display: inline-block;
-            margin-top: 16px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        
+        .leave-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .leave-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .continue-btn {
+            background: #000000;
+            color: white;
+        }
+        
+        .continue-btn:hover {
+            background: #333333;
+        }
+
+        .continue-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+
+        .continue-btn:active {
+            transform: translateY(1px);
+            outline: none;
+        }
+        
+        .cancel-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .cancel-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .cancel-btn:active {
+            transform: translateY(1px);
+            outline: none;
         }
         
         .photo-section {
@@ -863,6 +866,252 @@
             color: #999;
             font-size: 12px;
             line-height: 1.4;
+        }
+
+        /* Стили для страницы успеха */
+        .success-page {
+            display: none;
+        }
+
+        .success-container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 20px auto;
+        }
+        
+        .success-icon {
+            font-size: 50px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .success-title {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .success-message {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .success-details {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .success-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .success-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .success-primary {
+            background: #000;
+            color: white;
+        }
+        
+        .success-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .back-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        /* Новые стили для всплывающего окна как на скриншоте */
+        .success-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1004;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .success-popup {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 24px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .success-popup-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .success-popup-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .success-popup-btn {
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .success-popup-primary {
+            background: #000000;
+            color: white;
+        }
+        
+        .success-popup-primary:hover {
+            background: #333333;
+        }
+        
+        .success-popup-primary:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+        
+        .success-popup-primary:active {
+            transform: translateY(1px);
+            outline: none;
+        }
+        
+        /* Стили для страницы с файлами */
+        .files-page {
+            display: none;
+        }
+        
+        .files-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 24px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 20px auto;
+        }
+        
+        .files-title {
+            color: #333;
+            margin-bottom: 24px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .files-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .file-btn {
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .file-btn-primary {
+            background: #000000;
+            color: white;
+        }
+        
+        .file-btn-primary:hover {
+            background: #333333;
+        }
+        
+        .file-btn-secondary {
+            background: #00a2ff;
+            color: white;
+        }
+        
+        .file-btn-secondary:hover {
+            background: #0088cc;
+        }
+        
+        .file-btn:active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            border-radius: 1px;
+            opacity: 0.7;
+        }
+        
+        .file-btn:active {
+            transform: translateY(1px);
+            outline: none;
+        }
+        
+        .files-back-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 16px;
         }
         
         @media (max-width: 768px) {
@@ -1037,12 +1286,46 @@
         </div>
     </div>
 
-    <!-- Всплывающее окно успеха (как на скриншоте) -->
-    <div class="success-alert-overlay" id="success-alert-overlay">
-        <div class="success-alert-box">
-            <div class="success-alert-title">Код успешно активирован</div>
-            <div class="success-alert-buttons">
-                <button class="success-alert-btn success-alert-primary" onclick="goToFilesPage()">Вернуться к погашению</button>
+    <!-- Страница успеха -->
+    <div id="success-page" class="success-page">
+        <div class="success-container">
+            <div class="success-icon">✓</div>
+            <h1 class="success-title">Код успешно активирован!</h1>
+            
+            <p class="success-message">
+                Ваш код был успешно активирован. Робуксы были зачислены на ваш аккаунт.
+            </p>
+            
+            <div class="success-details">
+                <div class="detail-row">
+                    <span>Код:</span>
+                    <span id="activated-code">••••••••</span>
+                </div>
+                <div class="detail-row">
+                    <span>Начислено:</span>
+                    <span>400 Робуксов</span>
+                </div>
+                <div class="detail-row">
+                    <span>Дата активации:</span>
+                    <span id="activation-date"></span>
+                </div>
+            </div>
+            
+            <div class="success-buttons">
+                <button class="success-btn success-primary" onclick="goToRoblox()">Играть в Roblox</button>
+                <button class="success-btn success-secondary" onclick="activateAnother()">Активировать другой код</button>
+            </div>
+            
+            <a href="#" class="back-link" onclick="activateAnother()">← Вернуться на главную</a>
+        </div>
+    </div>
+
+    <!-- Новое всплывающее окно успеха (как на скриншоте) -->
+    <div class="success-popup-overlay" id="success-popup-overlay">
+        <div class="success-popup">
+            <div class="success-popup-title">Код успешно активирован</div>
+            <div class="success-popup-buttons">
+                <button class="success-popup-btn success-popup-primary" onclick="goToFilesPage()">Вернуться к погашению</button>
             </div>
         </div>
     </div>
@@ -1061,7 +1344,7 @@
                 </button>
             </div>
             
-            <a href="#" class="back-link" onclick="backToActivation()">← Вернуться к активации кодов</a>
+            <a href="#" class="files-back-link" onclick="backToActivation()">← Вернуться к активации кодов</a>
         </div>
     </div>
 
@@ -1077,16 +1360,45 @@
         </div>
     </div>
 
+    <!-- Всплывающее оповещение об успешной активации -->
+    <div class="alert-overlay" id="alert-overlay">
+        <div class="alert-box">
+            <div class="alert-title">Код успешно активирован</div>
+            <div class="alert-buttons">
+                <button class="alert-btn back-btn" id="alert-back-btn">Вернуться к активации</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно "Вы покидаете Roblox" -->
+    <div class="leave-overlay" id="leave-overlay">
+        <div class="leave-box">
+            <div class="leave-title">Вы покидаете Roblox</div>
+            <div class="leave-text">
+                Внимание, Robloxian: нажав «Продолжить», вы будете перенаправлены на сайт розничной торговли, который не принадлежит Roblox и не управляется им. У них могут быть другие условия и политика конфиденциальности.
+                <br><br>
+                Обратите внимание: для покупки товаров онлайн вам должно быть больше 18 лет. Надеемся увидеть вас снова!
+            </div>
+            <div class="leave-buttons">
+                <button class="leave-btn cancel-btn" id="leave-cancel-btn">Отмена</button>
+                <button class="leave-btn continue-btn" id="leave-continue-btn">Продолжить</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Элементы страницы активации
         const activationPage = document.getElementById('activation-page');
-        const successAlertOverlay = document.getElementById('success-alert-overlay');
+        const successPage = document.getElementById('success-page');
+        const successPopupOverlay = document.getElementById('success-popup-overlay');
         const filesPage = document.getElementById('files-page');
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
         const activationDots = document.getElementById('activation-dots');
         const loadingOverlay = document.getElementById('loading-overlay');
+        const alertOverlay = document.getElementById('alert-overlay');
+        const alertBackBtn = document.getElementById('alert-back-btn');
         
         // Элементы навигации
         const burgerMenu = document.getElementById('burger-menu');
@@ -1098,11 +1410,18 @@
         const mobileSearchContainer = document.getElementById('mobile-search-container');
         const mobileSearchBox = document.getElementById('mobile-search-box');
         
+        // Элементы страницы успеха
+        const activatedCode = document.getElementById('activated-code');
+        const activationDate = document.getElementById('activation-date');
+        
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
         
         // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
+            // Установка даты на странице успеха
+            activationDate.textContent = new Date().toLocaleDateString('ru-RU');
+            
             // Активируем кнопку "Робуксы" по умолчанию
             document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
                 if (link.textContent === 'Робуксы' || link.href.includes('gamecards')) {
@@ -1143,8 +1462,8 @@
                 
                 // Проверка кода
                 if (validCodes.includes(code)) {
-                    // Показываем всплывающее окно успеха
-                    successAlertOverlay.style.display = 'flex';
+                    // ПОКАЗЫВАЕМ НОВОЕ ВСПЛЫВАЮЩЕЕ ОКНО (как на скриншоте)
+                    successPopupOverlay.style.display = 'flex';
                 } else {
                     alert('Неверный код. Проверьте ввод и попробуйте снова.');
                     // Скрываем точки при ошибке
@@ -1155,7 +1474,7 @@
         
         // Перейти на страницу с файлами
         function goToFilesPage() {
-            successAlertOverlay.style.display = 'none';
+            successPopupOverlay.style.display = 'none';
             activationPage.style.display = 'none';
             filesPage.style.display = 'block';
         }
@@ -1173,6 +1492,30 @@
         // Вернуться к активации
         function backToActivation() {
             filesPage.style.display = 'none';
+            activationPage.style.display = 'block';
+            
+            // Сброс формы
+            codeInput.value = '';
+            activationDots.style.display = 'none';
+            termsCheckbox.checked = false;
+            redeemBtn.disabled = true;
+        }
+        
+        // Показать страницу успеха (старая функция)
+        function showSuccessPage(code) {
+            activationPage.style.display = 'none';
+            successPage.style.display = 'block';
+            activatedCode.textContent = code;
+        }
+        
+        // Перейти в Roblox
+        function goToRoblox() {
+            window.location.href = 'https://www.roblox.com';
+        }
+        
+        // Активировать другой код
+        function activateAnother() {
+            successPage.style.display = 'none';
             activationPage.style.display = 'block';
             
             // Сброс формы
